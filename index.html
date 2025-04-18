@@ -88,7 +88,7 @@ Image courtesy of Unsplash: https://unsplash.com
             margin: 0;
             color: #34C759;
             animation: slideInDown 1s ease-out;
-            font-weight: normal; /* Ensure the title is not bold */
+            font-weight: normal;
             position: relative;
         }
 
@@ -103,7 +103,7 @@ Image courtesy of Unsplash: https://unsplash.com
         .container h2::after {
             content: '';
             display: block;
-            width: 100%; /* Extend the line to the end of the container */
+            width: 100%;
             height: 3px;
             background-color: #34C759;
             position: absolute;
@@ -118,7 +118,7 @@ Image courtesy of Unsplash: https://unsplash.com
         }
 
         .container ul {
-            list-style-type: none; /* Remove white bullet dots */
+            list-style-type: none;
             margin-left: 20px;
             text-align: left;
         }
@@ -134,7 +134,7 @@ Image courtesy of Unsplash: https://unsplash.com
             content: "•";
             position: absolute;
             left: 0;
-            color: #34C759; /* Change bullet dots to green */
+            color: #34C759;
         }
 
         .button-container {
@@ -143,7 +143,7 @@ Image courtesy of Unsplash: https://unsplash.com
             margin-top: 20px;
             flex-wrap: wrap;
             justify-content: center;
-            z-index: 2; /* Ensure buttons are visible */
+            z-index: 2;
             position: relative;
         }
 
@@ -254,18 +254,19 @@ Image courtesy of Unsplash: https://unsplash.com
     <div class="overlay"></div>
     <div class="container">
         <h1>Darkelf Browser</h1>
-        <p>PySide6 • Tor Integration • Quantum</p>
+        <p>PySide6 • Tor Integration • Quantum • Anti-Forensics</p>
 
         <!-- About Darkelf -->
         <h2><i class="bi bi-info-circle"></i> About Darkelf</h2>
-        <p>Darkelf Browser is designed with privacy and security at its core, ensuring a safer and more private browsing experience for all users. Built on the robust PySide6 framework, Darkelf Browser integrates seamlessly with the Tor network to provide anonymous browsing. Our browser leverages advanced quantum encryption techniques to safeguard your data against future threats posed by quantum computers.</p>
-        <p>With a focus on user security, Darkelf Browser includes features like a custom ad blocker, NoScript filtering, process sandboxing, and HTTPS enforcement. The browser also incorporates anti-fingerprinting measures to reduce tracking and enhance user privacy. Whether you're a privacy enthusiast or just looking for a secure browsing experience, Darkelf Browser is tailored to meet your needs.</p>
+        <p>Darkelf Browser is designed with privacy and security at its core, ensuring a safer and more private browsing experience for all users. Built on the robust PySide6 framework, Darkelf Browser integrates seamlessly with the Tor network to provide anonymous browsing. Our browser leverages cutting-edge post-quantum encryption techniques, including standalone Kyber768 and Kyber1024 editions, to safeguard your data against future threats posed by quantum computers.</p>
+        <p>With a focus on user security, Darkelf Browser includes features like a custom ad blocker, NoScript filtering, process sandboxing, HTTPS enforcement, and anti-forensics measures to prevent data recovery or unauthorized access. Whether you're a privacy enthusiast or just looking for a secure browsing experience, Darkelf Browser is tailored to meet your needs.</p>
 
         <!-- Features -->
         <h2><i class="bi bi-tools"></i> Features</h2>
         <ul class="features">
+            <li>Standalone Kyber768/1024 Editions: Advanced post-quantum cryptography for maximum security.</li>
             <li>Tor Integration: Enhance your privacy with built-in Tor network support.</li>
-            <li>Quantum Encryption: Stay ahead with post-quantum cryptography.</li>
+            <li>Anti-Forensics: Protect your data with measures to prevent unauthorized recovery.</li>
             <li>Custom Ad Blocker: Enjoy an ad-free browsing experience with our custom ad blocker.</li>
             <li>NoScript Filtering: Block potentially harmful scripts to enhance security.</li>
             <li>Sandboxing: Isolate processes for enhanced security.</li>
@@ -280,7 +281,10 @@ Image courtesy of Unsplash: https://unsplash.com
             <li>Onion Routing</li>
             <li>Content Security Policy (CSP) Enhancements</li>
             <li>CHACHA20 Encryption with x25519 Key Exchange</li>
+            <li>Standalone Kyber768/1024 Post-Quantum Editions</li>
+            <li>Anti-Forensics for Enhanced Data Security</li>
             <li>Community Collaboration</li>
+            <li>Advanced Privacy Beyond Tor</li>
         </ul>
 
         <!-- Learn More -->
