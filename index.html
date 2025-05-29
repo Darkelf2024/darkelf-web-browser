@@ -258,13 +258,13 @@ Image courtesy of Unsplash: https://unsplash.com
 
         <!-- About Darkelf -->
         <h2><i class="bi bi-info-circle"></i> About Darkelf</h2>
-        <p>Darkelf Browser is designed with privacy and security at its core, ensuring a safer and more private browsing experience for all users. Built on the robust PySide6 framework, Darkelf Browser integrates seamlessly with the Tor network to provide anonymous browsing. Our browser leverages cutting-edge post-quantum encryption techniques, including standalone Kyber768 and Kyber1024 editions, to safeguard your data against future threats posed by quantum computers.</p>
+        <p>Darkelf Browser is designed with privacy and security at its core, ensuring a safer and more private browsing experience for all users. Built on the robust PySide6 framework, Darkelf Browser integrates seamlessly with the Tor network to provide anonymous browsing. Our browser leverages cutting-edge post-quantum encryption techniques, including standalone ML-KEM-768 and ML-KEM-1024 editions, to safeguard your data against future threats posed by quantum computers.</p>
         <p>With a focus on user security, Darkelf Browser includes features like a custom ad blocker, NoScript filtering, process sandboxing, HTTPS enforcement, and anti-forensics measures to prevent data recovery or unauthorized access. Whether you're a privacy enthusiast or just looking for a secure browsing experience, Darkelf Browser is tailored to meet your needs.</p>
 
         <!-- Features -->
         <h2><i class="bi bi-tools"></i> Features</h2>
         <ul class="features">
-            <li>Standalone Kyber768/1024 Editions: Advanced post-quantum cryptography for maximum security.</li>
+            <li>Standalone ML-KEM-768/1024 Editions: Advanced post-quantum cryptography for maximum security.</li>
             <li>Tor Integration: Enhance your privacy with built-in Tor network support.</li>
             <li>Anti-Forensics: Protect your data with measures to prevent unauthorized recovery.</li>
             <li>Custom Ad Blocker: Enjoy an ad-free browsing experience with our custom ad blocker.</li>
@@ -272,6 +272,7 @@ Image courtesy of Unsplash: https://unsplash.com
             <li>Sandboxing: Isolate processes for enhanced security.</li>
             <li>HTTPS Enforcement: Automatically upgrade HTTP requests to HTTPS.</li>
             <li>Anti-Fingerprinting: Reduce tracking with advanced spoofing techniques.</li>
+            <li>JavaScript Threat Detection via Machine Learning: Darkelf’s <code>CustomWebEnginePage</code> monitors <code>console.log()</code> outputs and classifies threats in real-time using a RandomForestClassifier (scikit-learn 1.6.1). Features include entropy scoring, fingerprinting API usage, eval detection, and network behavior analysis. Verified by SHA-256 hash. Malicious scripts are auto-blocked at runtime.</li>
         </ul>
 
         <!-- Important Highlights -->
