@@ -22,6 +22,7 @@ THE SOFTWARE.
 Image courtesy of Unsplash: https://unsplash.com
 -->
 
+<!-- Updated Darkelf Browser HTML -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,21 +31,17 @@ Image courtesy of Unsplash: https://unsplash.com
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darkelf Browser</title>
     <link rel="shortcut icon" type="image/png" href="Images/favicon.png" />
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-..." crossorigin="anonymous">
-    <!-- Bootstrap Icons CSS -->
+        crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-        /* CSS Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body styles */
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
@@ -73,10 +70,10 @@ Image courtesy of Unsplash: https://unsplash.com
         .container {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             padding: 20px;
             border-radius: 10px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             animation: fadeIn 1.5s ease-in-out;
             text-align: left;
@@ -85,52 +82,37 @@ Image courtesy of Unsplash: https://unsplash.com
 
         .container h1 {
             font-size: 2.5em;
-            margin: 0;
             color: #34C759;
             animation: slideInDown 1s ease-out;
             font-weight: normal;
-            position: relative;
         }
 
         .container h2 {
             font-size: 1.8em;
             margin: 20px 0;
             color: #34C759;
-            position: relative;
             padding-bottom: 10px;
-        }
-
-        .container h2::after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 3px;
-            background-color: #34C759;
-            position: absolute;
-            bottom: 0;
-            left: 0;
+            border-bottom: 2px solid #34C759;
         }
 
         .container p {
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin: 20px 0;
-            animation: slideInUp 1s ease-out;
         }
 
         .container ul {
             list-style-type: none;
             margin-left: 20px;
-            text-align: left;
+            padding-left: 10px;
         }
 
-        .container ul.features li,
-        .container ul.highlights li {
+        .container ul li {
+            margin-bottom: 10px;
             position: relative;
             padding-left: 20px;
         }
 
-        .container ul.features li::before,
-        .container ul.highlights li::before {
+        .container ul li::before {
             content: "•";
             position: absolute;
             left: 0;
@@ -139,36 +121,30 @@ Image courtesy of Unsplash: https://unsplash.com
 
         .button-container {
             display: flex;
-            gap: 20px;
-            margin-top: 20px;
             flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
             justify-content: center;
-            z-index: 2;
-            position: relative;
         }
 
         .button-container a {
-            display: inline-block;
             padding: 10px 20px;
-            margin: 5px;
-            border: none;
             border-radius: 5px;
             color: #fff;
             text-decoration: none;
             font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: 0.3s ease;
         }
 
-        .button-container .btn.email {
-            background-color: #000000;
+        .btn.email {
+            background-color: #000;
         }
 
-        .button-container .btn.github {
+        .btn.github {
             background-color: #24292e;
         }
 
-        .button-container .btn.discord {
+        .btn.discord {
             background-color: #7289da;
         }
 
@@ -176,62 +152,25 @@ Image courtesy of Unsplash: https://unsplash.com
             opacity: 0.8;
         }
 
-        .github-btn-bottom {
-            position: fixed;
-            bottom: 20px;
-            z-index: 3;
-            font-size: 1.5em;
-            text-decoration: none;
-            color: #f0f0f0;
-            transition: color 0.3s;
-        }
-
-        .github-btn-bottom:hover {
-            color: #34C759;
-        }
-
-        .container h2 i {
+        footer {
+            margin-top: 40px;
             font-size: 0.9em;
-            margin-right: 10px;
+            text-align: center;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @keyframes slideInDown {
-            from {
-                transform: translateY(-100px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         @media (max-width: 480px) {
             .container {
-                margin: 80px 10px;
+                margin: 60px 10px;
                 padding: 15px;
             }
 
@@ -242,10 +181,6 @@ Image courtesy of Unsplash: https://unsplash.com
             .container p {
                 font-size: 1em;
             }
-
-            .button-container a {
-                font-size: 1em;
-            }
         }
     </style>
 </head>
@@ -254,69 +189,74 @@ Image courtesy of Unsplash: https://unsplash.com
     <div class="overlay"></div>
     <div class="container">
         <h1>Darkelf Browser</h1>
-        <p>PySide6 • Tor Integration • Quantum • Anti-Forensics</p>
+        <p><em>Post-Quantum | Tor-Enabled | Anti-Forensics | ML Threat Detection</em></p>
 
-        <!-- About Darkelf -->
-        <h2><i class="bi bi-info-circle"></i> About Darkelf</h2>
-        <p>Darkelf Browser is designed with privacy and security at its core, ensuring a safer and more private browsing experience for all users. Built on the robust PySide6 framework, Darkelf Browser integrates seamlessly with the Tor network to provide anonymous browsing. Our browser leverages cutting-edge post-quantum encryption techniques, including standalone ML-KEM-768 and ML-KEM-1024 editions, to safeguard your data against future threats posed by quantum computers.</p>
-        <p>With a focus on user security, Darkelf Browser includes features like a custom ad blocker, NoScript filtering, process sandboxing, HTTPS enforcement, and anti-forensics measures to prevent data recovery or unauthorized access. Whether you're a privacy enthusiast or just looking for a secure browsing experience, Darkelf Browser is tailored to meet your needs.</p>
-
-        <!-- Features -->
-        <h2><i class="bi bi-tools"></i> Features</h2>
-        <ul class="features">
-            <li>Standalone ML-KEM-768/1024 Editions: Advanced post-quantum cryptography for maximum security.</li>
-            <li>Tor Integration: Enhance your privacy with built-in Tor network support.</li>
-            <li>Anti-Forensics: Protect your data with measures to prevent unauthorized recovery.</li>
-            <li>Custom Ad Blocker: Enjoy an ad-free browsing experience with our custom ad blocker.</li>
-            <li>NoScript Filtering: Block potentially harmful scripts to enhance security.</li>
-            <li>Sandboxing: Isolate processes for enhanced security.</li>
-            <li>HTTPS Enforcement: Automatically upgrade HTTP requests to HTTPS.</li>
-            <li>Anti-Fingerprinting: Reduce tracking with advanced spoofing techniques.</li>
-            <li>JavaScript Threat Detection via Machine Learning: Darkelf’s <code>CustomWebEnginePage</code> monitors <code>console.log()</code> outputs and classifies threats in real-time using a RandomForestClassifier (scikit-learn 1.6.1). Features include entropy scoring, fingerprinting API usage, eval detection, and network behavior analysis. Verified by SHA-256 hash. Malicious scripts are auto-blocked at runtime.</li>
-        </ul>
-
-        <!-- Important Highlights -->
-        <h2><i class="bi bi-star"></i> Important Highlights</h2>
-        <ul class="highlights">
-            <li>Tor DNS Integration</li>
-            <li>Onion Routing</li>
-            <li>Content Security Policy (CSP) Enhancements</li>
-            <li>CHACHA20 Encryption with x25519 Key Exchange</li>
-            <li>Standalone ML-KEM-768/1024 Post-Quantum Editions</li>
-            <li>Anti-Forensics for Enhanced Data Security</li>
-            <li>Community Collaboration</li>
-            <li>Advanced Privacy Beyond Tor</li>
-        </ul>
-
-        <!-- Learn More -->
-        <h2><i class="bi bi-book"></i> Learn More</h2>
+        <h2>🧬 Quantum-Ready Editions</h2>
         <ul>
-            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser/blob/main/README.md" target="_blank" rel="noopener noreferrer">About Darkelf Browser</a></li>
-            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser/blob/main/Darkelf%20Post%20Quantum%20Edition.md" target="_blank" rel="noopener noreferrer">Darkelf Quantum Edition</a></li>
-            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser/blob/main/ExportComplianceNotice.md" target="_blank" rel="noopener noreferrer">Export Compliance Notice</a></li>
-            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser/wiki" target="_blank" rel="noopener noreferrer">Darkelf Browser Wiki</a></li>
-            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License</a></li>
-            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser/blob/main/FAQ.md" target="_blank" rel="noopener noreferrer">FAQ</a></li>
+            <li><strong>ML-KEM-768:</strong> Balanced performance & quantum safety</li>
+            <li><strong>ML-KEM-1024:</strong> Maximum-strength PQ security</li>
+            <li>Powered by <code>liboqs</code> with AES-GCM + HKDF session key derivation</li>
+            <li>All keys and secrets stored in volatile memory only</li>
+            <li>JavaScript API via <code>darkelfCrypto</code> for PQ-safe crypto inside browser context</li>
         </ul>
 
-        <!-- Contact -->
-        <h2><i class="bi bi-envelope"></i> Contact</h2>
-        <div class="contact-info">
-            <p>Reach out to us via email or connect with us on professional networks</p>
-        </div>
+        <h2>🧠 JavaScript Threat Detection via ML</h2>
+        <ul>
+            <li>Real-time detection using a trained <code>RandomForestClassifier</code></li>
+            <li>Entropy analysis + eval/WebSocket/fingerprinting API usage detection</li>
+            <li>Blocks malicious scripts inline at runtime</li>
+            <li>Model integrity verified via SHA256 hash</li>
+        </ul>
+
+        <h2>🔒 Privacy & Anti-Fingerprinting</h2>
+        <ul>
+            <li>Randomized or blocked JS APIs: Canvas, WebGL, Audio, Fonts</li>
+            <li>WebRTC, geolocation, timezone spoofing all disabled</li>
+            <li>Anti-ETag, spoofed headers, and content security policy (CSP) injection</li>
+            <li>No cookies, storage, or disk I/O — ephemeral memory-only architecture</li>
+        </ul>
+
+        <h2>🕵️‍♂️ Anti-Forensics & Stealth</h2>
+        <ul>
+            <li>Disables swap and scrubs memory buffers</li>
+            <li>Auto-self-deletion if forensic tools or VMs are detected</li>
+            <li>RAM-only logs encrypted with Fernet</li>
+        </ul>
+
+        <h2>🌐 Hardened Networking</h2>
+        <ul>
+            <li>Native Tor integration using <code>stem</code> + SOCKS5 proxy</li>
+            <li>Fallback to DoH/DoT if Tor is unavailable</li>
+            <li>All traffic padded, delayed, and jittered to evade traffic analysis</li>
+        </ul>
+
+        <h2>📦 Developer Components</h2>
+        <ul>
+            <li><code>darkelf.py</code>: Main application bootstrapper</li>
+            <li><code>kyber_crypto.py</code>: Kyber-based key encapsulation logic</li>
+            <li><code>PQCryptoAPI</code>: QWebChannel JS-to-C++ bridge for in-browser crypto</li>
+            <li><code>ml_script_classifier.pkl</code>: ML model for JS detection</li>
+            <li><code>scaler.pkl</code>: Normalization scaler for ML inference</li>
+            <li><code>StealthCovertOps</code>: RAM-only stealth logging system</li>
+            <li><code>ObfuscatedEncryptedCookieStore</code>: Ephemeral, encrypted cookie store</li>
+        </ul>
+
+        <h2>📚 Learn More</h2>
+        <ul>
+            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser" target="_blank">GitHub Repository</a></li>
+            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser/wiki" target="_blank">Documentation Wiki</a></li>
+            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser/blob/main/Darkelf%20Post%20Quantum%20Edition.md" target="_blank">Post-Quantum Editions</a></li>
+            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser/blob/main/FAQ.md" target="_blank">FAQ</a></li>
+        </ul>
+
+        <h2>📬 Contact</h2>
+        <p>We're open to collaboration, feedback, and research partnerships.</p>
         <div class="button-container">
-            <a href="mailto:kjm489@km-consultant.pro" class="btn btn-dark email" role="button">
-                <i class="bi bi-envelope-fill"></i> Email
-            </a>
-            <a href="https://github.com/Darkelf2024" class="btn btn-dark github" role="button" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-github"></i> GitHub
-            </a>
-            <a href="https://discord.gg/ARc53Nby" class="btn btn-dark discord" role="button" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-discord"></i> Discord
-            </a>
+            <a href="mailto:kjm489@km-consultant.pro" class="btn email"><i class="bi bi-envelope-fill"></i> Email</a>
+            <a href="https://github.com/Darkelf2024" class="btn github" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+            <a href="https://discord.gg/ARc53Nby" class="btn discord" target="_blank"><i class="bi bi-discord"></i> Discord</a>
         </div>
 
-        <!-- Footer -->
         <footer>
             <p>&copy; 2025 Dr. Kevin Moore. All rights reserved.</p>
         </footer>
