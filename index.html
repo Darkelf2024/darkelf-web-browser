@@ -1,4 +1,4 @@
-<!-- 
+<!--
 MIT License
 Copyright (c) 2025 Dr. Kevin Moore
 
@@ -18,249 +18,237 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 
-<!-- 
-Image courtesy of Unsplash: https://unsplash.com
--->
-
-<!-- Updated Darkelf Browser HTML -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darkelf Browser</title>
-    <link rel="shortcut icon" type="image/png" href="Images/favicon.png" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Darkelf Browser — Post‑Quantum, Private, Hardened</title>
+  <meta name="description" content="Darkelf Browser: post‑quantum crypto, Tor routing, ML-powered script defense, and privacy-first hardening in a sleek, fast package." />
+  <link rel="icon" href="/Images/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Darkelf Browser" />
+  <meta property="og:description" content="Post‑quantum crypto • Tor‑enabled • ML threat detection • Privacy by default" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1669054626218-f0b57b8ec632?auto=format&fit=crop&w=1600&q=60" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #f0f0f0;
-            background: url("https://images.unsplash.com/photo-1669054626218-f0b57b8ec632?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAwfHxoYWNraW5nfGVufDB8fDB8fHww") no-repeat center center fixed;
-            background-size: cover;
-            overflow: auto;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
+  <style>
+    :root{
+      --bg: #0a0b10;
+      --card: rgba(255,255,255,0.06);
+      --muted: #b8c7d1;
+      --accent: #34C759; /* neon green */
+      --accent-2: #04A8C8; /* cyan */
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+    }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(4,168,200,.25), transparent 60%),
+                  radial-gradient(1000px 600px at 120% 10%, rgba(52,199,89,.18), transparent 60%),
+                  var(--bg);
+      color:#eef2f6;
+      overflow-x:hidden;
+    }
 
-        .container {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 20px;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1.5s ease-in-out;
-            text-align: left;
-            overflow: auto;
-        }
+    /* Subtle animated noise */
+    .grain:before{
+      content:""; position:fixed; inset:0; pointer-events:none; opacity:.06; mix-blend-mode:overlay;
+      background-image:url('https://grainy-gradients.vercel.app/noise.png');
+      animation:grain 8s steps(10) infinite;
+    }
+    @keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-5%,3%)}50%{transform:translate(2%,-4%)}75%{transform:translate(3%,2%)}100%{transform:translate(0,0)}}
 
-        .container h1 {
-            font-size: 2.5em;
-            color: #34C759;
-            animation: slideInDown 1s ease-out;
-            font-weight: normal;
-        }
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter:saturate(140%) blur(8px);
+      background:linear-gradient(to bottom, rgba(10,11,16,.85), rgba(10,11,16,.55));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-wrap{max-width:1100px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between}
+    .brand{display:flex; gap:10px; align-items:center; font-weight:700; letter-spacing:.3px}
+    .brand i{color:var(--accent)}
+    .nav-actions{display:flex; gap:10px}
+    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:10px 16px; border-radius:999px; text-decoration:none; color:#fff; border:1px solid rgba(255,255,255,.12); box-shadow:none; transition:.2s ease}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 6px 24px rgba(52,199,89,.22)}
+    .btn.primary{background:linear-gradient(90deg, var(--accent), var(--accent-2)); border-color:transparent}
 
-        .container h2 {
-            font-size: 1.8em;
-            margin: 20px 0;
-            color: #34C759;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #34C759;
-        }
+    /* Hero */
+    .hero{position:relative; max-width:1100px; margin:0 auto; padding:80px 20px 40px}
+    .hero-inner{display:grid; grid-template-columns:1.1fr .9fr; gap:32px; align-items:center}
+    .eyebrow{color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:.18em; font-size:.8rem}
+    h1{font-size:clamp(2rem, 3.6vw, 3.2rem); line-height:1.1; margin:.6rem 0 1rem}
+    .sub{color:var(--muted); font-size:clamp(1rem, 1.7vw, 1.25rem)}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+    .kicker{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px}
+    .chip{border:1px solid rgba(255,255,255,.14); padding:8px 12px; border-radius:999px; color:#d9e6ee; font-size:.92rem}
 
-        .container p {
-            font-size: 1.1em;
-            margin: 20px 0;
-        }
+    /* Features grid */
+    .section{max-width:1100px; margin:0 auto; padding:40px 20px}
+    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); height:100%}
+    .card h3{margin:8px 0 6px; font-size:1.05rem}
+    .card p{margin:0; color:var(--muted); font-size:.98rem}
+    .icon{font-size:1.3rem; color:var(--accent)}
 
-        .container ul {
-            list-style-type: none;
-            margin-left: 20px;
-            padding-left: 10px;
-        }
+    /* Editions */
+    .editions{display:grid; grid-template-columns:repeat(2, 1fr); gap:18px}
+    .edition{background:linear-gradient(180deg, rgba(4,168,200,.12), rgba(52,199,89,.08)); border:1px solid rgba(255,255,255,.12); border-radius:var(--radius); padding:20px}
+    .edition h4{margin:0 0 8px}
 
-        .container ul li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 20px;
-        }
+    /* CTA band */
+    .cta{margin-top:10px; background:linear-gradient(90deg, rgba(4,168,200,.18), rgba(52,199,89,.18)); border:1px solid rgba(255,255,255,.1); border-radius:var(--radius); padding:20px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between}
 
-        .container ul li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #34C759;
-        }
+    /* Footer */
+    footer{max-width:1100px; margin:20px auto 40px; padding:0 20px; color:#94a3af}
+    footer a{color:#cfe7ff}
 
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-            justify-content: center;
-        }
+    /* Responsive */
+    @media (max-width: 960px){.hero-inner{grid-template-columns:1fr} .grid{grid-template-columns:1fr 1fr}}
+    @media (max-width: 640px){.grid{grid-template-columns:1fr} .nav-actions{display:none}}
 
-        .button-container a {
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s ease;
-        }
-
-        .btn.email {
-            background-color: #000;
-        }
-
-        .btn.github {
-            background-color: #24292e;
-        }
-
-        .btn.discord {
-            background-color: #7289da;
-        }
-
-        .button-container a:hover {
-            opacity: 0.8;
-        }
-
-        footer {
-            margin-top: 40px;
-            font-size: 0.9em;
-            text-align: center;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideInDown {
-            from { transform: translateY(-100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                margin: 60px 10px;
-                padding: 15px;
-            }
-
-            .container h1 {
-                font-size: 2em;
-            }
-
-            .container p {
-                font-size: 1em;
-            }
-        }
-    </style>
+    /* Motion-safety */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none !important; transition:none !important}
+    }
+  </style>
 </head>
-
 <body>
-    <div class="overlay"></div>
-    <div class="container">
-        <h1>Darkelf Browser</h1>
-        <p><em>Post-Quantum | Tor-Enabled | Anti-Forensics | ML Threat Detection</em></p>
+  <div class="grain" aria-hidden="true"></div>
 
-        <h2>🧬 Quantum-Ready Editions</h2>
-        <ul>
-            <li><strong>ML-KEM-768:</strong> Balanced performance & quantum safety</li>
-            <li><strong>ML-KEM-1024:</strong> Maximum-strength PQ security</li>
-            <li>Powered by <code>liboqs</code> with AES-GCM + HKDF session key derivation</li>
-            <li>All keys and secrets stored in volatile memory only</li>
-            <li>JavaScript API via <code>darkelfCrypto</code> for PQ-safe crypto inside browser context</li>
-        </ul>
+  <!-- Header -->
+  <header role="banner">
+    <nav class="nav-wrap" aria-label="Primary">
+      <div class="brand" aria-label="Darkelf Browser home">
+        <i class="bi bi-shield-lock"></i>
+        <span>Darkelf Browser</span>
+      </div>
+      <div class="nav-actions">
+        <a class="btn" href="https://github.com/Darkelf2024/Darkelf-Browser" target="_blank" rel="noopener"> <i class="bi bi-github"></i> GitHub</a>
+        <a class="btn" href="mailto:kjm489@km-consultant.pro"><i class="bi bi-envelope-fill"></i> Contact</a>
+        <a class="btn primary" href="#download"><i class="bi bi-download"></i> Download</a>
+      </div>
+    </nav>
+  </header>
 
-        <h2>🧠 JavaScript Threat Detection via ML</h2>
-        <ul>
-            <li>Real-time detection using a trained <code>RandomForestClassifier</code></li>
-            <li>Entropy analysis + eval/WebSocket/fingerprinting API usage detection</li>
-            <li>Blocks malicious scripts inline at runtime</li>
-            <li>Model integrity verified via SHA256 hash</li>
-        </ul>
-
-        <h2>🔒 Privacy & Anti-Fingerprinting</h2>
-        <ul>
-            <li>Randomized or blocked JS APIs: Canvas, WebGL, Audio, Fonts</li>
-            <li>WebRTC, geolocation, timezone spoofing all disabled</li>
-            <li>Anti-ETag, spoofed headers, and content security policy (CSP) injection</li>
-            <li>No cookies, storage, or disk I/O — ephemeral memory-only architecture</li>
-        </ul>
-
-        <h2>🕵️‍♂️ Anti-Forensics & Stealth</h2>
-        <ul>
-            <li>Disables swap and scrubs memory buffers</li>
-            <li>Auto-self-deletion if forensic tools or VMs are detected</li>
-            <li>RAM-only logs encrypted with Fernet</li>
-        </ul>
-
-        <h2>🌐 Hardened Networking</h2>
-        <ul>
-            <li>Native Tor integration using <code>stem</code> + SOCKS5 proxy</li>
-            <li>Fallback to DoH/DoT if Tor is unavailable</li>
-            <li>All traffic padded, delayed, and jittered to evade traffic analysis</li>
-        </ul>
-
-        <h2>📦 Developer Components</h2>
-        <ul>
-            <li><code>darkelf.py</code>: Main application bootstrapper</li>
-            <li><code>kyber_crypto.py</code>: Kyber-based key encapsulation logic</li>
-            <li><code>PQCryptoAPI</code>: QWebChannel JS-to-C++ bridge for in-browser crypto</li>
-            <li><code>ml_script_classifier.pkl</code>: ML model for JS detection</li>
-            <li><code>scaler.pkl</code>: Normalization scaler for ML inference</li>
-            <li><code>StealthCovertOps</code>: RAM-only stealth logging system</li>
-            <li><code>ObfuscatedEncryptedCookieStore</code>: Ephemeral, encrypted cookie store</li>
-        </ul>
-
-        <h2>📚 Learn More</h2>
-        <ul>
-            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser" target="_blank">GitHub Repository</a></li>
-            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser-v3-PQC/wiki" target="_blank">Documentation Wiki</a></li>
-            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser-v3-PQC/blob/main/Darkelf%20Editions%20Overview.md" target="_blank">Post-Quantum Editions</a></li>
-            <li><a href="https://github.com/Darkelf2024/Darkelf-Browser/blob/main/FAQ.md" target="_blank">FAQ</a></li>
-        </ul>
-
-        <h2>📬 Contact</h2>
-        <p>We're open to collaboration, feedback, and research partnerships.</p>
-        <div class="button-container">
-            <a href="mailto:kjm489@km-consultant.pro" class="btn email"><i class="bi bi-envelope-fill"></i> Email</a>
-            <a href="https://github.com/Darkelf2024" class="btn github" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-            <a href="https://discord.gg/ARc53Nby" class="btn discord" target="_blank"><i class="bi bi-discord"></i> Discord</a>
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Post‑Quantum • Private • Hardened</div>
+        <h1>Privacy at <em>quantum scale</em>.</h1>
+        <p class="sub">Darkelf pairs PQC handshakes with Tor‑ready networking and ML‑powered script defense—wrapped in a sleek, fast browser core. No disk I/O. No tracking. No compromise.</p>
+        <div class="kicker" role="list" aria-label="Highlights">
+          <span class="chip" role="listitem"><i class="bi bi-lightning-charge"></i> ML‑KEM‑768/1024</span>
+          <span class="chip" role="listitem"><i class="bi bi-router"></i> Tor + DoH/DoT fallback</span>
+          <span class="chip" role="listitem"><i class="bi bi-shield-check"></i> CSP injection</span>
+          <span class="chip" role="listitem"><i class="bi bi-cpu"></i> Runtime JS scanner</span>
         </div>
-
-        <footer>
-            <p>&copy; 2025 Dr. Kevin Moore. All rights reserved.</p>
-        </footer>
+      </div>
+      <div class="hero-card" aria-label="Feature quick facts">
+        <div class="grid" style="grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="card">
+            <div class="icon"><i class="bi bi-boxes"></i></div>
+            <h3>Volatile‑only</h3>
+            <p>Keys, cookies, and logs stay in RAM; buffers scrubbed on exit.</p>
+          </div>
+          <div class="card">
+            <div class="icon"><i class="bi bi-braces"></i></div>
+            <h3>PQC API</h3>
+            <p><code>darkelfCrypto</code> exposes safe primitives in the page context.</p>
+          </div>
+          <div class="card">
+            <div class="icon"><i class="bi bi-graph-up-arrow"></i></div>
+            <h3>Entropy & Signals</h3>
+            <p>Detects eval, WS beacons, fingerprinting, and anomalous entropy.</p>
+          </div>
+          <div class="card">
+            <div class="icon"><i class="bi bi-fingerprint"></i></div>
+            <h3>De‑fingerprinted</h3>
+            <p>Canvas/WebGL/Audio randomized or blocked; headers and ETags neutralized.</p>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+  </section>
 
+  <!-- Core features -->
+  <section class="section" id="features" aria-labelledby="features-title">
+    <h2 id="features-title" class="eyebrow" style="letter-spacing:.14em">Core Capabilities</h2>
+    <div class="grid" style="margin-top:12px">
+      <article class="card" aria-label="Quantum‑ready">
+        <div class="icon"><i class="bi bi-hexagon"></i></div>
+        <h3>Quantum‑ready Handshakes</h3>
+        <p>liboqs + AES‑GCM with HKDF. Choose ML‑KEM‑768 for balance or ML‑KEM‑1024 for maximum PQ strength.</p>
+      </article>
+      <article class="card" aria-label="Script defense">
+        <div class="icon"><i class="bi bi-shield-shaded"></i></div>
+        <h3>Runtime Script Defense</h3>
+        <p>Inline blocking from a trained RandomForest model; integrity sealed with SHA‑256 model digests.</p>
+      </article>
+      <article class="card" aria-label="Hardened networking">
+        <div class="icon"><i class="bi bi-diagram-3"></i></div>
+        <h3>Hardened Networking</h3>
+        <p>Native Tor (SOCKS5) with jittered, padded traffic; smart fallback to DoH/DoT if Tor is unavailable.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Editions -->
+  <section class="section" aria-labelledby="editions">
+    <h2 id="editions" class="eyebrow" style="letter-spacing:.14em">Editions</h2>
+    <div class="editions" style="margin-top:12px">
+      <div class="edition">
+        <h4>ML‑KEM‑768</h4>
+        <p class="muted">Balanced performance with PQ safety for most deployments.</p>
+        <ul>
+          <li>Handshake via liboqs</li>
+          <li>AES‑GCM session w/ HKDF</li>
+          <li>RAM‑only secrets</li>
+        </ul>
+      </div>
+      <div class="edition">
+        <h4>ML‑KEM‑1024</h4>
+        <p class="muted">Maximum‑strength PQ configuration for critical environments.</p>
+        <ul>
+          <li>Kyber‑derived encapsulation</li>
+          <li>Strict CSP + header hardening</li>
+          <li>Extended anti‑fingerprinting</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta" id="download" role="region" aria-label="Download and resources">
+      <strong>Get Darkelf</strong>
+      <div style="display:flex; gap:10px; flex-wrap:wrap">
+        <a class="btn primary" href="https://github.com/Darkelf2024/Darkelf-Browser/releases" target="_blank" rel="noopener"><i class="bi bi-download"></i> Download</a>
+        <a class="btn" href="https://github.com/Darkelf2024/Darkelf-Browser" target="_blank" rel="noopener"><i class="bi bi-github"></i> Source</a>
+        <a class="btn" href="https://github.com/Darkelf2024/Darkelf-Browser-v3-PQC/wiki" target="_blank" rel="noopener"><i class="bi bi-journal-text"></i> Docs</a>
+        <a class="btn" href="mailto:kjm489@km-consultant.pro"><i class="bi bi-envelope-fill"></i> Contact</a>
+        <a class="btn" href="https://discord.gg/ARc53Nby" target="_blank" rel="noopener"><i class="bi bi-discord"></i> Discord</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Dr. Kevin Moore. All rights reserved. | <a href="https://github.com/Darkelf2024/Darkelf-Browser/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a></p>
+  </footer>
+
+  <!-- Simple reveal on scroll -->
+  <script>
+    const obs = new IntersectionObserver(entries=>{
+      for(const e of entries){ if(e.isIntersecting){ e.target.style.transform='translateY(0)'; e.target.style.opacity='1'; obs.unobserve(e.target);} }
+    }, { threshold:.12 });
+    document.querySelectorAll('.card, .edition, .cta').forEach(el=>{
+      el.style.opacity='0'; el.style.transform='translateY(16px)'; obs.observe(el);
+    });
+  </script>
+</body>
 </html>
