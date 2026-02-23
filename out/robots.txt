@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+Disallow: /download
+Disallow: /api/
+
+Host: https://darkelfbrowser.com
+Sitemap: https://darkelfbrowser.com/sitemap.xml

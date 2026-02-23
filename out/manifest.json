@@ -1,0 +1,31 @@
+{
+  "name": "Darkelf Browser",
+  "short_name": "Darkelf",
+  "description": "Open-source, hardened, non-persistent privacy browsers for macOS, Linux, and Windows. Anti-fingerprinting, Tor-native, post-quantum ready.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e17",
+  "theme_color": "#0a0e17",
+  "lang": "en-US",
+  "categories": ["privacy", "security", "utilities"],
+  "icons": [
+    {
+      "src": "/lock.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon_32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/DarkelfHomeScreen.png",
+      "type": "image/png",
+      "label": "Darkelf Download Center"
+    }
+  ]
+}
