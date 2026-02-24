@@ -39,7 +39,15 @@ jobs:
         uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: '20'
-          cache: 'npm'
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        continue-on-error: true
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
 
       - name: Install dependencies (clean install)
         run: npm ci
