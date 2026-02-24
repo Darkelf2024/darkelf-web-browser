@@ -7,6 +7,9 @@ const nextConfig = {
   output: 'export',
   basePath: isProd && !hasCustomDomain ? '/darkelf-web-browser' : '',
   assetPrefix: isProd && !hasCustomDomain ? '/darkelf-web-browser/' : '',
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProd && !hasCustomDomain ? '/darkelf-web-browser' : '',
+  },
   images: {
     unoptimized: true,
   },

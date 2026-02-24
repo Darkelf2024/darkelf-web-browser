@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getAllReleases } from "@/lib/releases";
 import { Nav } from "@/components/Nav";
 import { ReleasesFilterClient } from "@/components/ReleasesFilterClient";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "All Releases — Darkelf Cocoa, Shadow, Mini Browser & OSINT AI",
@@ -38,7 +39,7 @@ export default function ReleasesPage() {
           playsInline
           preload="metadata"
         >
-          <source src="/cyber_yellow.mp4" type="video/mp4" />
+          <source src={asset("/cyber_yellow.mp4")} type="video/mp4" />
         </video>
         <div className="releases-bg-overlay" />
       </div>

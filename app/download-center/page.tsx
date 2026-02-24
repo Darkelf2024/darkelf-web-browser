@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getLatestRelease } from "@/lib/releases";
 import { Nav } from "@/components/Nav";
 import { DownloadCenterClient } from "@/components/DownloadCenterClient";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Darkelf Download Center — Hardened Privacy Browsers for macOS, Linux & Windows",
@@ -52,7 +53,7 @@ export default function DownloadCenterPage() {
           playsInline
           preload="metadata"
         >
-          <source src="/cyber_blue.mp4" type="video/mp4" />
+          <source src={asset("/cyber_blue.mp4")} type="video/mp4" />
         </video>
         <div className="home-bg-overlay" />
       </div>

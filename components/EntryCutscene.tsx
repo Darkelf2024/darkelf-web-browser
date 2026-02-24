@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { asset } from "@/lib/asset";
 
 const frames = [
   {
@@ -80,7 +81,7 @@ export function EntryCutscene({ onComplete }: EntryCutsceneProps) {
         playsInline
         preload="metadata"
       >
-        <source src="/cyber_orange.mp4" type="video/mp4" />
+        <source src={asset("/cyber_orange.mp4")} type="video/mp4" />
       </video>
       <div className="entry-cutscene__overlay" />
       <div className="entry-cutscene__content">

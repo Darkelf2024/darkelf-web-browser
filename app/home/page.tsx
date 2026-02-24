@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Darkelf Browser — Mission, Security Mindset, and Privacy-First Vision",
@@ -33,7 +34,7 @@ export default function HomePage() {
     <>
       <div className="entry-bg-video-wrap" aria-hidden="true">
         <video className="entry-bg-video" autoPlay loop muted playsInline preload="metadata">
-          <source src="/cyber_orange.mp4" type="video/mp4" />
+          <source src={asset("/cyber_orange.mp4")} type="video/mp4" />
         </video>
         <div className="entry-bg-overlay" />
       </div>

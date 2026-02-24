@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { VerifySteps } from "@/components/VerifySteps";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Security & Verification — SHA-256 Checksums & Non-Persistent Design",
@@ -45,7 +46,7 @@ export default function SecurityPage() {
           playsInline
           preload="metadata"
         >
-          <source src="/cyber_red.mp4" type="video/mp4" />
+          <source src={asset("/cyber_red.mp4")} type="video/mp4" />
         </video>
         <div className="security-bg-overlay" />
       </div>
