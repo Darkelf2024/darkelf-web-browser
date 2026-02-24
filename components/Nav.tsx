@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { asset } from '@/lib/asset';
 
 interface NavProps {
   activePath?: string;
@@ -16,8 +16,8 @@ export function Nav({ activePath = "" }: NavProps) {
   return (
     <header>
       <div className="nav">
-        <Link className="brand" href="/" aria-label="Darkelf Browser home">
-          <Image src="/lock.png" alt="Darkelf" width={32} height={32} style={{ borderRadius: '8px', objectFit: 'cover' }} />
+        <Link className="brand" href="/home" aria-label="Darkelf Browser home">
+          <img src={asset("/lock.png")} alt="Darkelf" width={32} height={32} style={{ borderRadius: '8px', objectFit: 'cover' }} />
           <span>Darkelf Browser</span>
           <span className="badge">Mission + Security</span>
         </Link>
