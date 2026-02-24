@@ -1,6 +1,12 @@
 {
-  "/page": "app/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/download-center/page": "app/download-center/page.js",
+  "/download/page": "app/download/page.js",
+  "/page": "app/page.js",
+  "/releases/[product]/[version]/page": "app/releases/[product]/[version]/page.js",
   "/releases/page": "app/releases/page.js",
-  "/security/page": "app/security/page.js"
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/security/page": "app/security/page.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js"
 }

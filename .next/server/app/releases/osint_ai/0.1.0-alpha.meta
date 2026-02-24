@@ -1,0 +1,18 @@
+{
+  "status": 404,
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/releases/layout,_N_T_/releases/[product]/layout,_N_T_/releases/[product]/[version]/layout,_N_T_/releases/[product]/[version]/page,_N_T_/releases/osint_ai/0.1.0-alpha"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/releases/$d$product/$d$version/__PAGE__",
+    "/releases/$d$product/$d$version",
+    "/releases/$d$product",
+    "/releases",
+    "/_index",
+    "/_head"
+  ]
+}

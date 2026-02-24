@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { getAllReleases } from '@/lib/releases';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://darkelfbrowser.com';
   const now = new Date();

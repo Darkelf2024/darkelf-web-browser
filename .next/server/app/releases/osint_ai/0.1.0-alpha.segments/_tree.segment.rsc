@@ -1,0 +1,4 @@
+:HL["/_next/static/chunks/cead283706976107.css","style"]
+:HL["/_next/static/media/051742360c26797e-s.p.102b7f24.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css","style"]
+0:{"buildId":"1oXXKNpzSeyQMMGXGeY3b","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"releases","paramType":null,"paramKey":"releases","hasRuntimePrefetch":false,"slots":{"children":{"name":"product","paramType":"d","paramKey":"osint_ai","hasRuntimePrefetch":false,"slots":{"children":{"name":"version","paramType":"d","paramKey":"0.1.0-alpha","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
