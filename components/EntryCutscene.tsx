@@ -27,14 +27,21 @@ const frames = [
 
 const SESSION_KEY = "darkelf_cutscene_seen";
 
-export function EntryCutscene() {
+interface EntryCutsceneProps {
+  onComplete?: () => void;
+}
+
+export function EntryCutscene({ onComplete }: EntryCutsceneProps) {
   const [visible, setVisible] = useState(false);
   const [fading, setFading] = useState(false);
   const [frameIndex, setFrameIndex] = useState(0);
 
   useEffect(() => {
     // Only show once per browser session
-    if (sessionStorage.getItem(SESSION_KEY)) return;
+    if (sessionStorage.getItem(SESSION_KEY)) {
+      onComplete?.();
+      return;
+    }
 
     // Mark as seen immediately so re-renders/navigation won't replay it
     sessionStorage.setItem(SESSION_KEY, "1");
@@ -46,6 +53,7 @@ export function EntryCutscene() {
     const fadeTimer = setTimeout(() => setFading(true), 14300);
     const hideTimer = setTimeout(() => {
       setVisible(false);
+      onComplete?.();
     }, 15000);
 
     return () => {
@@ -53,7 +61,7 @@ export function EntryCutscene() {
       clearTimeout(fadeTimer);
       clearTimeout(hideTimer);
     };
-  }, []);
+  }, [onComplete]);
 
   if (!visible) return null;
 

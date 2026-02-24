@@ -7,7 +7,7 @@ interface NavProps {
 
 export function Nav({ activePath = "" }: NavProps) {
   const links = [
-    { href: "/", label: "Home" },
+    { href: "/home", label: "Home" },
     { href: "/download-center", label: "Download" },
     { href: "/releases", label: "Releases" },
     { href: "/security", label: "Security" },
