@@ -36,6 +36,8 @@ export function EntryCutscene() {
     // Only show once per browser session
     if (sessionStorage.getItem(SESSION_KEY)) return;
 
+    // Mark as seen immediately so re-renders/navigation won't replay it
+    sessionStorage.setItem(SESSION_KEY, "1");
     setVisible(true);
 
     const cycleTimer = setInterval(() => {
@@ -44,7 +46,6 @@ export function EntryCutscene() {
     const fadeTimer = setTimeout(() => setFading(true), 14300);
     const hideTimer = setTimeout(() => {
       setVisible(false);
-      sessionStorage.setItem(SESSION_KEY, "1");
     }, 15000);
 
     return () => {
