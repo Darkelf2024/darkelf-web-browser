@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { resolveDownload } from "@/lib/releases";
 import { PRODUCT_META } from "@/lib/config";
+import Link from "next/link";
 import { DownloadConfirmClient } from "@/components/DownloadConfirmClient";
 
 function DownloadPageInner() {
@@ -36,14 +37,14 @@ function DownloadPageInner() {
           <h1 className="dl-error__title">Download Not Available</h1>
           <p className="dl-error__msg">{messages[result.reason]}</p>
           <div className="dl-error__actions">
-            <a href="/releases" className="btn primary">
+            <Link href="/releases" className="btn primary">
               <i className="bi bi-clock-history" aria-hidden="true" />
               Browse Releases
-            </a>
-            <a href="/download-center" className="btn">
+            </Link>
+            <Link href="/download-center" className="btn">
               <i className="bi bi-download" aria-hidden="true" />
               Download Center
-            </a>
+            </Link>
           </div>
         </div>
       </div>

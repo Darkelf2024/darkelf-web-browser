@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import type { Metadata } from "next";
 import {
   getRelease,
@@ -79,15 +80,15 @@ export default function ReleaseDetailPage({ params }: ReleaseDetailParams) {
           <nav className="breadcrumb" aria-label="Breadcrumb">
             <ol>
               <li>
-                <a href="/download-center">Download Center</a>
+                <Link href="/download-center">Download Center</Link>
               </li>
               <li>
-                <a href="/releases">Releases</a>
+                <Link href="/releases">Releases</Link>
               </li>
               <li>
-                <a href={`/releases?product=${release.product}`}>
+                <Link href={`/releases?product=${release.product}`}>
                   {meta.displayName}
-                </a>
+                </Link>
               </li>
               <li aria-current="page">v{release.version}</li>
             </ol>
@@ -179,14 +180,14 @@ export default function ReleaseDetailPage({ params }: ReleaseDetailParams) {
 
           {/* Navigation */}
           <div className="rd-nav-links">
-            <a href="/releases" className="btn">
+            <Link href="/releases" className="btn">
               <i className="bi bi-arrow-left" aria-hidden="true" />
               All Releases
-            </a>
-            <a href="/download-center" className="btn">
+            </Link>
+            <Link href="/download-center" className="btn">
               <i className="bi bi-download" aria-hidden="true" />
               Download Center
-            </a>
+            </Link>
           </div>
         </article>
       </main>

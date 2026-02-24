@@ -1,6 +1,7 @@
 import type { Release, ProductId, Channel, Platform } from "@/lib/releases";
 import { formatDate, platformLabel } from "@/lib/releases";
 import { PRODUCT_META } from "@/lib/config";
+import Link from "next/link";
 import { StatusBadge } from "@/components/StatusBadge";
 
 interface VersionTimelineProps {
@@ -29,9 +30,9 @@ export function VersionTimeline({
       <div className="releases-empty" role="status">
         <i className="bi bi-inbox" aria-hidden="true" />
         <p>No releases match the selected filters.</p>
-        <a href="/releases" className="dc-link">
+        <Link href="/releases" className="dc-link">
           Clear filters
-        </a>
+        </Link>
       </div>
     );
   }

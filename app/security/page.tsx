@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { VerifySteps } from "@/components/VerifySteps";
 
@@ -187,14 +188,14 @@ export default function SecurityPage() {
 
           {/* Nav footer */}
           <div className="rd-nav-links">
-            <a href="/download-center" className="btn">
+            <Link href="/download-center" className="btn">
               <i className="bi bi-download" aria-hidden="true" />
               Download Center
-            </a>
-            <a href="/releases" className="btn">
+            </Link>
+            <Link href="/releases" className="btn">
               <i className="bi bi-clock-history" aria-hidden="true" />
               All Releases
-            </a>
+            </Link>
           </div>
         </article>
       </main>

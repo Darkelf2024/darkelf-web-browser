@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getAllReleases } from "@/lib/releases";
 import { Nav } from "@/components/Nav";
 import { ReleasesFilterClient } from "@/components/ReleasesFilterClient";
@@ -57,10 +58,10 @@ export default function ReleasesPage() {
               </p>
             </div>
             <div className="section-title-actions">
-              <a href="/download-center" className="btn">
+              <Link href="/download-center" className="btn">
                 <i className="bi bi-download" aria-hidden="true" />
                 Download Center
-              </a>
+              </Link>
             </div>
           </div>
 

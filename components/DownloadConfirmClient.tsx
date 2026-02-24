@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { useState } from "react";
 import type { Release, Artifact } from "@/lib/releases";
@@ -107,10 +108,10 @@ export function DownloadConfirmClient({
 
         {/* Actions */}
         <div className="dl-confirm__actions">
-          <a href="/releases" className="btn dl-confirm__back-btn">
+          <Link href="/releases" className="btn dl-confirm__back-btn">
             <i className="bi bi-arrow-left" aria-hidden="true" />
             Back to Releases
-          </a>
+          </Link>
           <button
             type="button"
             className="btn primary dl-confirm__go-btn"
@@ -137,9 +138,9 @@ export function DownloadConfirmClient({
         <p className="dl-confirm__verify-note">
           <i className="bi bi-info-circle" aria-hidden="true" />
           Not sure how to verify?{" "}
-          <a href="/security#verify" className="dc-link">
+          <Link href="/security#verify" className="dc-link">
             Read the verification guide
-          </a>
+          </Link>
         </p>
       </div>
     </div>

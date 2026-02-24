@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { EntryCutscene } from "@/components/EntryCutscene";
 
@@ -60,14 +61,14 @@ export default function Page() {
             digital forensics, red-team simulations, and post-quantum readiness.
           </p>
           <div className="entry-hero__actions">
-            <a href="/download-center" className="btn primary">
+            <Link href="/download-center" className="btn primary">
               <i className="bi bi-download" aria-hidden="true" />
               Go to Download Center
-            </a>
-            <a href="/security" className="btn">
+            </Link>
+            <Link href="/security" className="btn">
               <i className="bi bi-shield-check" aria-hidden="true" />
               Security & Verification
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -146,10 +147,10 @@ export default function Page() {
             </p>
           </div>
           <div className="entry-hero__actions">
-            <a href="/download-center" className="btn primary">
+            <Link href="/download-center" className="btn primary">
               <i className="bi bi-arrow-right-circle" aria-hidden="true" />
               Enter Download Center
-            </a>
+            </Link>
           </div>
         </section>
       </main>
