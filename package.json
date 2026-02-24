@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0",
     "export": "next export"
   },
   "dependencies": {
@@ -15,10 +15,11 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.4",
     "@types/node": "20.14.2",
     "@types/react": "18.3.6",
-    "eslint": "^10.0.2",
-    "eslint-config-next": "^0.2.4",
+    "eslint": "^9.39.3",
+    "eslint-config-next": "^16.1.6",
     "typescript": "5.4.5"
   }
 }
