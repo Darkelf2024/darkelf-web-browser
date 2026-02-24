@@ -56,9 +56,6 @@ jobs:
         env:
           NODE_ENV: production
 
-      - name: Copy CNAME to output
-        run: cp CNAME out/CNAME
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
 
