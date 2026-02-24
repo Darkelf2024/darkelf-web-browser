@@ -25,17 +25,27 @@ const frames = [
   },
 ] as const;
 
+const SESSION_KEY = "darkelf_cutscene_seen";
+
 export function EntryCutscene() {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const [fading, setFading] = useState(false);
   const [frameIndex, setFrameIndex] = useState(0);
 
   useEffect(() => {
+    // Only show once per browser session
+    if (sessionStorage.getItem(SESSION_KEY)) return;
+
+    setVisible(true);
+
     const cycleTimer = setInterval(() => {
       setFrameIndex((prev) => (prev + 1 < frames.length ? prev + 1 : prev));
     }, 3200);
     const fadeTimer = setTimeout(() => setFading(true), 14300);
-    const hideTimer = setTimeout(() => setVisible(false), 15000);
+    const hideTimer = setTimeout(() => {
+      setVisible(false);
+      sessionStorage.setItem(SESSION_KEY, "1");
+    }, 15000);
 
     return () => {
       clearInterval(cycleTimer);
