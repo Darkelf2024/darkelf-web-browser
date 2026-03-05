@@ -129,6 +129,8 @@ export function EntryCutscene({ onComplete }: EntryCutsceneProps) {
   };
 
   useEffect(() => {
+    const currentTimers = timers.current;
+
     // Only show once per browser session
     if (sessionStorage.getItem(SESSION_KEY)) {
       onComplete?.();
@@ -154,14 +156,14 @@ export function EntryCutscene({ onComplete }: EntryCutsceneProps) {
 
     const totalDuration = FRAME_DURATION_MS * frames.length;
 
-    timers.current.cycle = setInterval(() => {
+    currentTimers.cycle = setInterval(() => {
       setFrameIndex((prev) => (prev + 1 < frames.length ? prev + 1 : prev));
     }, FRAME_DURATION_MS);
 
-    timers.current.fade = setTimeout(() => setFading(true), totalDuration - FADE_LEAD_MS);
+    currentTimers.fade = setTimeout(() => setFading(true), totalDuration - FADE_LEAD_MS);
 
     const scheduleMusic = (delay: number) => {
-      timers.current.music = setTimeout(() => {
+      currentTimers.music = setTimeout(() => {
         startAudioWithFade().catch(() => {
           // Playback blocked: prompt user
           setNeedsUserAudio(true);
@@ -171,7 +173,7 @@ export function EntryCutscene({ onComplete }: EntryCutsceneProps) {
 
     scheduleMusic(MUSIC_DELAY_MS);
 
-    timers.current.hide = setTimeout(() => {
+    currentTimers.hide = setTimeout(() => {
       fadeOutAndStop().finally(() => {
         setVisible(false);
         onComplete?.();
@@ -179,12 +181,12 @@ export function EntryCutscene({ onComplete }: EntryCutsceneProps) {
     }, totalDuration);
 
     return () => {
-      if (timers.current.cycle) clearInterval(timers.current.cycle);
-      if (timers.current.fade) clearTimeout(timers.current.fade);
-      if (timers.current.hide) clearTimeout(timers.current.hide);
-      if (timers.current.music) clearTimeout(timers.current.music);
-      if (timers.current.fadeIn) clearInterval(timers.current.fadeIn);
-      if (timers.current.fadeOut) clearInterval(timers.current.fadeOut);
+      if (currentTimers.cycle) clearInterval(currentTimers.cycle);
+      if (currentTimers.fade) clearTimeout(currentTimers.fade);
+      if (currentTimers.hide) clearTimeout(currentTimers.hide);
+      if (currentTimers.music) clearTimeout(currentTimers.music);
+      if (currentTimers.fadeIn) clearInterval(currentTimers.fadeIn);
+      if (currentTimers.fadeOut) clearInterval(currentTimers.fadeOut);
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
