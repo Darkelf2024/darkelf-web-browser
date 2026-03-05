@@ -1,0 +1,9 @@
+1:"$Sreact.fragment"
+2:I[47257,["/darkelf-web-browser/_next/static/chunks/ff1a16fafef87110.js","/darkelf-web-browser/_next/static/chunks/d2be314c3ece3fbe.js"],"ClientPageRoot"]
+3:I[31713,["/darkelf-web-browser/_next/static/chunks/a3205ce48fb0ce54.js"],"default"]
+6:I[97367,["/darkelf-web-browser/_next/static/chunks/ff1a16fafef87110.js","/darkelf-web-browser/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+0:{"buildId":"5pEYvsf88gY8HyifIDxp0","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/darkelf-web-browser/_next/static/chunks/a3205ce48fb0ce54.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+4:{}
+5:{}
+8:null

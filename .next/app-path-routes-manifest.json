@@ -1,0 +1,13 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/download-center/page": "/download-center",
+  "/download/page": "/download",
+  "/home/page": "/home",
+  "/page": "/",
+  "/releases/[product]/[version]/page": "/releases/[product]/[version]",
+  "/releases/page": "/releases",
+  "/robots.txt/route": "/robots.txt",
+  "/security/page": "/security",
+  "/sitemap.xml/route": "/sitemap.xml"
+}
