@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
-const hasCustomDomain = false; // no custom domain, using github.io URL
+const hasCustomDomain = true;
 
 const nextConfig = {
   reactStrictMode: true,
