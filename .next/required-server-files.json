@@ -1,7 +1,9 @@
 {
   "version": 1,
   "config": {
-    "env": {},
+    "env": {
+      "NEXT_PUBLIC_BASE_PATH": "/darkelf-web-browser"
+    },
     "webpack": null,
     "typescript": {
       "ignoreBuildErrors": false
@@ -9,7 +11,7 @@
     "typedRoutes": false,
     "distDir": ".next",
     "cleanDistDir": true,
-    "assetPrefix": "",
+    "assetPrefix": "/darkelf-web-browser/",
     "cacheMaxMemorySize": 52428800,
     "configOrigin": "next.config.mjs",
     "useFileSystemPublicRoutes": true,
@@ -42,7 +44,7 @@
         256,
         384
       ],
-      "path": "/_next/image",
+      "path": "/darkelf-web-browser/_next/image",
       "loader": "default",
       "loaderFile": "",
       "domains": [],
@@ -76,7 +78,7 @@
       "maxInactiveAge": 60000,
       "pagesBufferLength": 5
     },
-    "basePath": "",
+    "basePath": "/darkelf-web-browser",
     "sassOptions": {},
     "trailingSlash": false,
     "i18n": null,
@@ -101,7 +103,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\Users\\tbgor\\OneDrive\\Desktop\\dev\\darkelf-web-browser",
+    "outputFileTracingRoot": "C:\\dev\\darkelf-web-browser",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -294,11 +296,11 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.mjs",
     "turbopack": {
-      "root": "C:\\Users\\tbgor\\OneDrive\\Desktop\\dev\\darkelf-web-browser"
+      "root": "C:\\dev\\darkelf-web-browser"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "C:\\Users\\tbgor\\OneDrive\\Desktop\\dev\\darkelf-web-browser",
+  "appDir": "C:\\dev\\darkelf-web-browser",
   "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",

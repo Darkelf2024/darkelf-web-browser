@@ -86,7 +86,7 @@ export function resolveDownload(
     return { ok: false, reason: "missing_params" };
   }
 
-  const validProducts: ProductId[] = ["cocoa", "shadow_lite", "osint_ai", "mini_browser"];
+  const validProducts: ProductId[] = ["cocoa", "shadow_lite", "osint_ai"];
   const validPlatforms: Platform[] = ["windows", "linux", "macos"];
 
   if (!validProducts.includes(product as ProductId)) {

@@ -30,12 +30,6 @@ export const REPO_CONFIG = {
     url: "https://github.com/Darkelf2024/Darkelf-OSINT-Ai",
     releasesUrl: "https://github.com/Darkelf2024/Darkelf-OSINT-Ai/releases",
   },
-  mini_browser: {
-    org: "Darkelf2024",
-    repo: "Darkelf-Mini-Browser",
-    url: "https://github.com/Darkelf2024/Darkelf-Mini-Browser",
-    releasesUrl: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases",
-  },
 } as const;
 
 export const PRODUCT_META = {
@@ -62,13 +56,5 @@ export const PRODUCT_META = {
       "AI-powered Open-Source Intelligence assistant. Combines traditional OSINT workflows with local AI reasoning via Ollama. Modular, ethical, and built for investigators.",
     color: "var(--accent-4)",
     colorRgb: "255,152,0",
-  },
-  mini_browser: {
-    displayName: "Darkelf Mini Browser",
-    tagline: "Stealth · Hardened · Ephemeral — PySide6 + Tor · Windows · Linux · macOS",
-    shortDescription:
-      "Next-generation privacy mini browser built on PySide6/QtWebEngine. Tor-by-default, SuperHardenedPage JS shields, network adblock, and full ephemeral session isolation.",
-    color: "var(--accent-5)",
-    colorRgb: "0,200,180",
   },
 } as const;

@@ -26,7 +26,6 @@ export const metadata: Metadata = {
     'Darkelf Browser',
     'Darkelf Cocoa',
     'Darkelf Shadow',
-    'Darkelf Mini Browser',
     'Darkelf OSINT AI',
     'Dr Kevin Moore browser',
     // Privacy & Security
@@ -194,7 +193,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       'https://github.com/Darkelf2024',
       'https://github.com/Darkelf2024/Darkelf-Cocoa-Browser',
       'https://github.com/Darkelf2024/Darkelf-Shadow',
-      'https://github.com/Darkelf2024/Darkelf-Mini-Browser',
       'https://github.com/Darkelf2024/Darkelf-OSINT-Ai',
     ],
   } as const;
@@ -220,7 +218,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: 'Darkelf Browser Products',
     description: 'Hardened, non-persistent, privacy-first browsers and tools for security researchers, journalists, and OSINT analysts.',
     url: siteUrl,
-    numberOfItems: 4,
+    numberOfItems: 3,
     itemListElement: [
       {
         '@type': 'ListItem',
@@ -260,22 +258,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         position: 3,
         item: {
           '@type': 'SoftwareApplication',
-          name: 'Darkelf Mini Browser',
-          applicationCategory: 'BrowserApplication',
-          operatingSystem: 'Windows, Linux, macOS',
-          description: 'Stealth, hardened, ephemeral PySide6+Tor privacy mini browser. SuperHardenedPage shields, network adblock, full session isolation.',
-          url: `${siteUrl}/`,
-          downloadUrl: 'https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases',
-          softwareVersion: '3.10.4.9',
-          license: 'https://opensource.org/licenses/MIT',
-          offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        },
-      },
-      {
-        '@type': 'ListItem',
-        position: 4,
-        item: {
-          '@type': 'SoftwareApplication',
           name: 'Darkelf OSINT AI',
           applicationCategory: 'UtilitiesApplication',
           operatingSystem: 'Windows, Linux, macOS',
@@ -299,7 +281,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         name: 'What is Darkelf Browser?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Darkelf Browser is a suite of open-source, hardened, non-persistent privacy browsers and tools built for security researchers, journalists, OSINT analysts, and privacy advocates. Products include Darkelf Cocoa (macOS), Darkelf Shadow (Linux/Windows), Darkelf Mini Browser (all platforms, Tor-native), and Darkelf OSINT AI.',
+          text: 'Darkelf Browser is a suite of open-source, hardened, non-persistent privacy browsers and tools built for security researchers, journalists, OSINT analysts, and privacy advocates. Products include Darkelf Cocoa (macOS), Darkelf Shadow (Linux/Windows), and Darkelf OSINT AI.',
         },
       },
       {
@@ -315,7 +297,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         name: 'What platforms does Darkelf Browser support?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Darkelf Cocoa is macOS-only. Darkelf Shadow supports Linux and Windows. Darkelf Mini Browser and Darkelf OSINT AI support Windows, Linux, and macOS.',
+          text: 'Darkelf Cocoa is macOS-only. Darkelf Shadow supports Linux and Windows. Darkelf OSINT AI supports Windows, Linux, and macOS.',
         },
       },
       {
@@ -331,7 +313,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         name: 'Does Darkelf Browser support Tor?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes. Darkelf Mini Browser routes all traffic through Tor by default, with optional local Tor launcher and SOCKS5 proxy fallback. WebRTC is hard-blocked to prevent IP leaks.',
+          text: 'A Tor-native edition is temporarily offline while we refocus the product line. Current builds prioritize hardened networking on Cocoa and Shadow; Tor routing will return in a dedicated release.',
         },
       },
       {

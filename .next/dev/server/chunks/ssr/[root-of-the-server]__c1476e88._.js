@@ -56,7 +56,6 @@ const metadata = {
         'Darkelf Browser',
         'Darkelf Cocoa',
         'Darkelf Shadow',
-        'Darkelf Mini Browser',
         'Darkelf OSINT AI',
         'Dr Kevin Moore browser',
         // Privacy & Security
@@ -238,7 +237,6 @@ function RootLayout({ children }) {
             'https://github.com/Darkelf2024',
             'https://github.com/Darkelf2024/Darkelf-Cocoa-Browser',
             'https://github.com/Darkelf2024/Darkelf-Shadow',
-            'https://github.com/Darkelf2024/Darkelf-Mini-Browser',
             'https://github.com/Darkelf2024/Darkelf-OSINT-Ai'
         ]
     };
@@ -262,7 +260,7 @@ function RootLayout({ children }) {
         name: 'Darkelf Browser Products',
         description: 'Hardened, non-persistent, privacy-first browsers and tools for security researchers, journalists, and OSINT analysts.',
         url: siteUrl,
-        numberOfItems: 4,
+        numberOfItems: 3,
         itemListElement: [
             {
                 '@type': 'ListItem',
@@ -310,26 +308,6 @@ function RootLayout({ children }) {
                 position: 3,
                 item: {
                     '@type': 'SoftwareApplication',
-                    name: 'Darkelf Mini Browser',
-                    applicationCategory: 'BrowserApplication',
-                    operatingSystem: 'Windows, Linux, macOS',
-                    description: 'Stealth, hardened, ephemeral PySide6+Tor privacy mini browser. SuperHardenedPage shields, network adblock, full session isolation.',
-                    url: `${siteUrl}/`,
-                    downloadUrl: 'https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases',
-                    softwareVersion: '3.10.4.9',
-                    license: 'https://opensource.org/licenses/MIT',
-                    offers: {
-                        '@type': 'Offer',
-                        price: '0',
-                        priceCurrency: 'USD'
-                    }
-                }
-            },
-            {
-                '@type': 'ListItem',
-                position: 4,
-                item: {
-                    '@type': 'SoftwareApplication',
                     name: 'Darkelf OSINT AI',
                     applicationCategory: 'UtilitiesApplication',
                     operatingSystem: 'Windows, Linux, macOS',
@@ -356,7 +334,7 @@ function RootLayout({ children }) {
                 name: 'What is Darkelf Browser?',
                 acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Darkelf Browser is a suite of open-source, hardened, non-persistent privacy browsers and tools built for security researchers, journalists, OSINT analysts, and privacy advocates. Products include Darkelf Cocoa (macOS), Darkelf Shadow (Linux/Windows), Darkelf Mini Browser (all platforms, Tor-native), and Darkelf OSINT AI.'
+                    text: 'Darkelf Browser is a suite of open-source, hardened, non-persistent privacy browsers and tools built for security researchers, journalists, OSINT analysts, and privacy advocates. Products include Darkelf Cocoa (macOS), Darkelf Shadow (Linux/Windows), and Darkelf OSINT AI.'
                 }
             },
             {
@@ -372,7 +350,7 @@ function RootLayout({ children }) {
                 name: 'What platforms does Darkelf Browser support?',
                 acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Darkelf Cocoa is macOS-only. Darkelf Shadow supports Linux and Windows. Darkelf Mini Browser and Darkelf OSINT AI support Windows, Linux, and macOS.'
+                    text: 'Darkelf Cocoa is macOS-only. Darkelf Shadow supports Linux and Windows. Darkelf OSINT AI supports Windows, Linux, and macOS.'
                 }
             },
             {
@@ -388,7 +366,7 @@ function RootLayout({ children }) {
                 name: 'Does Darkelf Browser support Tor?',
                 acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Yes. Darkelf Mini Browser routes all traffic through Tor by default, with optional local Tor launcher and SOCKS5 proxy fallback. WebRTC is hard-blocked to prevent IP leaks.'
+                    text: 'A Tor-native edition is temporarily offline while we refocus the product line. Current builds prioritize hardened networking on Cocoa and Shadow; Tor routing will return in a dedicated release.'
                 }
             },
             {
@@ -411,7 +389,7 @@ function RootLayout({ children }) {
                         href: "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
                     }, void 0, false, {
                         fileName: "[project]/app/layout.tsx",
-                        lineNumber: 351,
+                        lineNumber: 333,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("script", {
@@ -421,7 +399,7 @@ function RootLayout({ children }) {
                         }
                     }, void 0, false, {
                         fileName: "[project]/app/layout.tsx",
-                        lineNumber: 355,
+                        lineNumber: 337,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("script", {
@@ -431,7 +409,7 @@ function RootLayout({ children }) {
                         }
                     }, void 0, false, {
                         fileName: "[project]/app/layout.tsx",
-                        lineNumber: 359,
+                        lineNumber: 341,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("script", {
@@ -441,7 +419,7 @@ function RootLayout({ children }) {
                         }
                     }, void 0, false, {
                         fileName: "[project]/app/layout.tsx",
-                        lineNumber: 363,
+                        lineNumber: 345,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("script", {
@@ -451,13 +429,13 @@ function RootLayout({ children }) {
                         }
                     }, void 0, false, {
                         fileName: "[project]/app/layout.tsx",
-                        lineNumber: 367,
+                        lineNumber: 349,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/layout.tsx",
-                lineNumber: 350,
+                lineNumber: 332,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("body", {
@@ -465,13 +443,13 @@ function RootLayout({ children }) {
                 children: children
             }, void 0, false, {
                 fileName: "[project]/app/layout.tsx",
-                lineNumber: 372,
+                lineNumber: 354,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/layout.tsx",
-        lineNumber: 349,
+        lineNumber: 331,
         columnNumber: 5
     }, this);
 }

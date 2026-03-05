@@ -9,7 +9,7 @@
 // TODO: Replace every SHA256 value with the real hex digest of the artifact
 // ---------------------------------------------------------------------------
 
-export type ProductId = "cocoa" | "shadow_lite" | "osint_ai" | "mini_browser";
+export type ProductId = "cocoa" | "shadow_lite" | "osint_ai";
 export type Channel = "stable" | "nightly";
 export type Platform = "windows" | "linux" | "macos";
 export type FileType = "exe" | "appimage" | "dmg";
@@ -153,49 +153,6 @@ export const releases: Release[] = [
         sizeBytes: 0,
         sha256: "TODO_SHA256_PLACEHOLDER_REPLACE_WITH_ACTUAL_HASH_BEFORE_RELEASE",
         notesUrl: "https://github.com/Darkelf2024/Darkelf-OSINT-Ai",
-      },
-    ],
-  },
-  {
-    product: "mini_browser",
-    channel: "stable",
-    version: "3.10.4.9",
-    dateISO: "2025-09-01",
-    highlights: [
-      "Tor-by-default routing with optional local Tor launcher and proxy fallback",
-      "SuperHardenedPage — hundreds of anti-fingerprinting shields injected before any page JS runs",
-      "Network-level adblock: blocks requests to known ad/tracker domains at the interceptor layer",
-      "UA-CH & client-hints stripping — removes all identifying headers and browser hints",
-      "Full ephemeral privacy — no cookies, cache, localStorage, or session data survives across sessions",
-    ],
-    notesMarkdown: `## Darkelf Mini Browser v3.10.4.9\n\n### What Is This?\nStealth. Private. Hardened. Ephemeral. A PySide6/QtWebEngine privacy mini browser with Tor integration, advanced anti-fingerprinting, and stealth network-level adblock.\n\n### Requirements\n- Python 3.8+\n- PySide6\n- stem (for Tor control)\n- Tor installed on your system\n\n### Installation\n\`\`\`bash\npip install PySide6 stem\nbrew install tor  # macOS\npython3.11 darkelf.py\n\`\`\`\n\n### Security Highlights\n- Canvas fingerprinting APIs blocked at source (not just randomized)\n- WebGL, WebRTC, WebAuthn, Bluetooth, Battery, Permissions API hard-blocked\n- Letterboxing: window/screen dimensions spoofed (Tor Browser style)\n- Supercookie kill: localStorage, sessionStorage, IndexedDB, ServiceWorker all blocked\n- Strict CSP + referrer policy applied at document creation`,
-    artifacts: [
-      {
-        platform: "windows",
-        arch: "x64",
-        fileType: "exe",
-        url: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases/download/TODO_VERSION/DarkelfMini-TODO_windows-x64.exe",
-        sizeBytes: 0,
-        sha256: "TODO_SHA256_PLACEHOLDER_REPLACE_WITH_ACTUAL_HASH_BEFORE_RELEASE",
-        notesUrl: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases/tag/v.3.10.4.9",
-      },
-      {
-        platform: "linux",
-        arch: "x64",
-        fileType: "appimage",
-        url: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases/download/TODO_VERSION/DarkelfMini-TODO_linux-x64.AppImage",
-        sizeBytes: 0,
-        sha256: "TODO_SHA256_PLACEHOLDER_REPLACE_WITH_ACTUAL_HASH_BEFORE_RELEASE",
-        notesUrl: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases/tag/v.3.10.4.9",
-      },
-      {
-        platform: "macos",
-        arch: "x64",
-        fileType: "dmg",
-        url: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases/download/TODO_VERSION/DarkelfMini-TODO_macos-x64.dmg",
-        sizeBytes: 0,
-        sha256: "TODO_SHA256_PLACEHOLDER_REPLACE_WITH_ACTUAL_HASH_BEFORE_RELEASE",
-        notesUrl: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases/tag/v.3.10.4.9",
       },
     ],
   },

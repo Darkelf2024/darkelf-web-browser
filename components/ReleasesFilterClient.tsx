@@ -14,7 +14,9 @@ function ReleasesFilterInner({ releases }: ReleasesFilterClientProps) {
   const searchParams = useSearchParams();
   const rawProduct = searchParams.get("product");
   const parsedProduct: ProductId | null =
-    rawProduct === "cocoa" || rawProduct === "shadow_lite" ? rawProduct : null;
+    rawProduct === "cocoa" || rawProduct === "shadow_lite" || rawProduct === "osint_ai"
+      ? rawProduct
+      : null;
 
   const [product, setProduct] = useState<ProductId | null>(parsedProduct);
   const [channel, setChannel] = useState<Channel | null>(null);
@@ -58,6 +60,14 @@ function ReleasesFilterInner({ releases }: ReleasesFilterClientProps) {
               type="button"
             >
               Shadow Lite
+            </button>
+            <button
+              className={`platform-pill ${product === "osint_ai" ? "platform-pill--active" : ""}`}
+              onClick={() => setProduct("osint_ai")}
+              aria-pressed={product === "osint_ai"}
+              type="button"
+            >
+              OSINT AI
             </button>
           </div>
         </div>

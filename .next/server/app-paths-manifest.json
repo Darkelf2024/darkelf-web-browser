@@ -3,6 +3,7 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/download-center/page": "app/download-center/page.js",
   "/download/page": "app/download/page.js",
+  "/home/page": "app/home/page.js",
   "/page": "app/page.js",
   "/releases/[product]/[version]/page": "app/releases/[product]/[version]/page.js",
   "/releases/page": "app/releases/page.js",

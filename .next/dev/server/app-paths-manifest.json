@@ -1,5 +1,6 @@
 {
   "/download-center/page": "app/download-center/page.js",
+  "/home/page": "app/home/page.js",
   "/page": "app/page.js",
   "/releases/page": "app/releases/page.js",
   "/security/page": "app/security/page.js"

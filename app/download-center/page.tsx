@@ -7,17 +7,15 @@ import { asset } from "@/lib/asset";
 export const metadata: Metadata = {
   title: "Darkelf Download Center — Hardened Privacy Browsers for macOS, Linux & Windows",
   description:
-    "Download Darkelf Cocoa (macOS WebKit), Darkelf Shadow (PySide6 Linux/Windows), Darkelf Mini Browser (Tor-native, all platforms), and Darkelf OSINT AI. Non-persistent, anti-fingerprinting, SHA-256 verified. Free and open-source.",
+    "Download Darkelf Cocoa (macOS WebKit), Darkelf Shadow (PySide6 Linux/Windows), and Darkelf OSINT AI. Non-persistent, anti-fingerprinting, SHA-256 verified. Free and open-source.",
   keywords: [
     "download privacy browser",
     "Darkelf Cocoa download",
     "Darkelf Shadow download",
-    "Darkelf Mini Browser download",
     "Darkelf OSINT AI",
     "macOS privacy browser download",
     "Linux privacy browser download",
     "Windows privacy browser download",
-    "Tor browser download",
     "hardened browser download",
     "free privacy browser",
     "open source browser download",
@@ -30,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Darkelf Download Center — Hardened Privacy Browsers",
     description:
-      "Free, open-source, hardened privacy browsers. Darkelf Cocoa for macOS, Darkelf Shadow for Linux/Windows, Darkelf Mini Browser (Tor-native), and Darkelf OSINT AI. SHA-256 verified.",
+      "Free, open-source, hardened privacy browsers. Darkelf Cocoa for macOS, Darkelf Shadow for Linux/Windows, and Darkelf OSINT AI. SHA-256 verified.",
     url: "https://darkelfbrowser.com/download-center",
     type: "website",
   },
@@ -40,7 +38,6 @@ export default function DownloadCenterPage() {
   const cocoaRelease = getLatestRelease("cocoa");
   const shadowRelease = getLatestRelease("shadow_lite");
   const osintAiRelease = getLatestRelease("osint_ai");
-  const miniRelease = getLatestRelease("mini_browser");
 
   return (
     <>
@@ -85,7 +82,6 @@ export default function DownloadCenterPage() {
             cocoaRelease={cocoaRelease}
             shadowRelease={shadowRelease}
             osintAiRelease={osintAiRelease}
-            miniRelease={miniRelease}
           />
         </section>
 

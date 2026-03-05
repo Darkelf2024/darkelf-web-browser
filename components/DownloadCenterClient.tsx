@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import type { Release, ProductId, Platform } from "@/lib/releases";
+import type { Release, Platform } from "@/lib/releases";
 import { ProductCard } from "@/components/ProductCard";
 import { PlatformPills, useDetectedPlatform } from "@/components/PlatformPills";
 
@@ -9,14 +9,12 @@ interface DownloadCenterClientProps {
   cocoaRelease: Release | undefined;
   shadowRelease: Release | undefined;
   osintAiRelease: Release | undefined;
-  miniRelease: Release | undefined;
 }
 
 export function DownloadCenterClient({
   cocoaRelease,
   shadowRelease,
   osintAiRelease,
-  miniRelease,
 }: DownloadCenterClientProps) {
   const detected = useDetectedPlatform();
   const [selected, setSelected] = useState<Platform | null>(null);
@@ -69,11 +67,6 @@ export function DownloadCenterClient({
         <ProductCard
           productId="osint_ai"
           release={osintAiRelease}
-          highlightPlatform={highlight}
-        />
-        <ProductCard
-          productId="mini_browser"
-          release={miniRelease}
           highlightPlatform={highlight}
         />
       </div>

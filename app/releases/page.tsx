@@ -6,12 +6,12 @@ import { ReleasesFilterClient } from "@/components/ReleasesFilterClient";
 import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
-  title: "All Releases — Darkelf Cocoa, Shadow, Mini Browser & OSINT AI",
+  title: "All Releases — Darkelf Cocoa, Shadow & OSINT AI",
   description:
-    "Browse all Darkelf browser releases: Darkelf Cocoa (macOS), Darkelf Shadow (Linux/Windows), Darkelf Mini Browser (Tor-native, all platforms), and Darkelf OSINT AI. Filter by product, channel, and platform. SHA-256 verified.",
+    "Browse all Darkelf browser releases: Darkelf Cocoa (macOS), Darkelf Shadow (Linux/Windows), and Darkelf OSINT AI. Filter by product, channel, and platform. SHA-256 verified.",
   keywords: [
     'Darkelf releases', 'Darkelf Cocoa releases', 'Darkelf Shadow releases',
-    'Darkelf Mini Browser releases', 'Darkelf OSINT AI releases',
+    'Darkelf OSINT AI releases',
     'privacy browser releases', 'browser changelog', 'browser release notes',
     'macOS browser release', 'Linux browser release', 'Windows browser release',
     'nightly browser build', 'stable browser release', 'open source browser releases',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/releases' },
   openGraph: {
     title: "All Darkelf Browser Releases",
-    description: "Browse all releases for Darkelf Cocoa, Shadow, Mini Browser, and OSINT AI. Filter by platform, channel, and product. SHA-256 verified downloads.",
+    description: "Browse all releases for Darkelf Cocoa, Shadow, and OSINT AI. Filter by platform, channel, and product. SHA-256 verified downloads.",
     url: "https://darkelfbrowser.com/releases",
     type: "website",
   },

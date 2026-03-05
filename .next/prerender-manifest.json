@@ -98,6 +98,30 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/home": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/home",
+      "dataRoute": "/home.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/": {
       "experimentalBypassFor": [
         {
@@ -137,30 +161,6 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/releases/[product]/[version]",
       "dataRoute": "/releases/cocoa/4.0.0.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/releases/mini_browser/3.10.4.9": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/releases/[product]/[version]",
-      "dataRoute": "/releases/mini_browser/3.10.4.9.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -356,8 +356,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "41a4d69cb08fde423012942be1e4b470",
-    "previewModeSigningKey": "e25d37b6541889fc39dc326d3eca7a81a4a349f452c684c7308d6bf0cb8e1844",
-    "previewModeEncryptionKey": "7d0b592884850a7c19c9af8b5cab5703622aab90133d287a5198cea837407d4a"
+    "previewModeId": "80f63eb8bb8a0b7ae65851f152fcd032",
+    "previewModeSigningKey": "f98afb6e6ea69d6dde81e8a5c54db557124aae57c13531252bee98244d18e147",
+    "previewModeEncryptionKey": "40b60931b8acda6cc731d30db9641eefa40211084ece5f166f0906cbe94e197d"
   }
 }

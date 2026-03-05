@@ -1,4 +1,7 @@
+"use client";
+
 import Link from 'next/link';
+import { useState } from 'react';
 import { asset } from '@/lib/asset';
 
 interface NavProps {
@@ -6,12 +9,15 @@ interface NavProps {
 }
 
 export function Nav({ activePath = "" }: NavProps) {
+  const [open, setOpen] = useState(false);
   const links = [
     { href: "/home", label: "Home" },
     { href: "/download-center", label: "Download" },
     { href: "/releases", label: "Releases" },
     { href: "/security", label: "Security" },
   ];
+
+  const closeMenu = () => setOpen(false);
 
   return (
     <header>
@@ -23,7 +29,18 @@ export function Nav({ activePath = "" }: NavProps) {
           <span className="badge">Mission + Security</span>
         </Link>
         <nav aria-label="Main navigation">
-          <div className="right">
+          <button
+            type="button"
+            className={`nav-toggle${open ? " nav-toggle--open" : ""}`}
+            aria-expanded={open}
+            aria-controls="main-menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="nav-toggle__bar" />
+            <span className="nav-toggle__bar" />
+            <span className="nav-toggle__bar" />
+          </button>
+          <div className={`right${open ? " right--open" : ""}`} id="main-menu">
             {links.map((link) => {
               const isActive = activePath === link.href;
               return (
@@ -32,6 +49,7 @@ export function Nav({ activePath = "" }: NavProps) {
                   className={`btn${isActive ? " btn--nav-active" : ""}`}
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
+                  onClick={closeMenu}
                 >
                   {link.label}
                 </Link>

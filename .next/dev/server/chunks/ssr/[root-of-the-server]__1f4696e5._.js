@@ -131,49 +131,6 @@ const releases = [
                 notesUrl: "https://github.com/Darkelf2024/Darkelf-OSINT-Ai"
             }
         ]
-    },
-    {
-        product: "mini_browser",
-        channel: "stable",
-        version: "3.10.4.9",
-        dateISO: "2025-09-01",
-        highlights: [
-            "Tor-by-default routing with optional local Tor launcher and proxy fallback",
-            "SuperHardenedPage — hundreds of anti-fingerprinting shields injected before any page JS runs",
-            "Network-level adblock: blocks requests to known ad/tracker domains at the interceptor layer",
-            "UA-CH & client-hints stripping — removes all identifying headers and browser hints",
-            "Full ephemeral privacy — no cookies, cache, localStorage, or session data survives across sessions"
-        ],
-        notesMarkdown: `## Darkelf Mini Browser v3.10.4.9\n\n### What Is This?\nStealth. Private. Hardened. Ephemeral. A PySide6/QtWebEngine privacy mini browser with Tor integration, advanced anti-fingerprinting, and stealth network-level adblock.\n\n### Requirements\n- Python 3.8+\n- PySide6\n- stem (for Tor control)\n- Tor installed on your system\n\n### Installation\n\`\`\`bash\npip install PySide6 stem\nbrew install tor  # macOS\npython3.11 darkelf.py\n\`\`\`\n\n### Security Highlights\n- Canvas fingerprinting APIs blocked at source (not just randomized)\n- WebGL, WebRTC, WebAuthn, Bluetooth, Battery, Permissions API hard-blocked\n- Letterboxing: window/screen dimensions spoofed (Tor Browser style)\n- Supercookie kill: localStorage, sessionStorage, IndexedDB, ServiceWorker all blocked\n- Strict CSP + referrer policy applied at document creation`,
-        artifacts: [
-            {
-                platform: "windows",
-                arch: "x64",
-                fileType: "exe",
-                url: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases/download/TODO_VERSION/DarkelfMini-TODO_windows-x64.exe",
-                sizeBytes: 0,
-                sha256: "TODO_SHA256_PLACEHOLDER_REPLACE_WITH_ACTUAL_HASH_BEFORE_RELEASE",
-                notesUrl: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases/tag/v.3.10.4.9"
-            },
-            {
-                platform: "linux",
-                arch: "x64",
-                fileType: "appimage",
-                url: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases/download/TODO_VERSION/DarkelfMini-TODO_linux-x64.AppImage",
-                sizeBytes: 0,
-                sha256: "TODO_SHA256_PLACEHOLDER_REPLACE_WITH_ACTUAL_HASH_BEFORE_RELEASE",
-                notesUrl: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases/tag/v.3.10.4.9"
-            },
-            {
-                platform: "macos",
-                arch: "x64",
-                fileType: "dmg",
-                url: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases/download/TODO_VERSION/DarkelfMini-TODO_macos-x64.dmg",
-                sizeBytes: 0,
-                sha256: "TODO_SHA256_PLACEHOLDER_REPLACE_WITH_ACTUAL_HASH_BEFORE_RELEASE",
-                notesUrl: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases/tag/v.3.10.4.9"
-            }
-        ]
     }
 ];
 }),
@@ -216,12 +173,6 @@ const REPO_CONFIG = {
         repo: "Darkelf-OSINT-Ai",
         url: "https://github.com/Darkelf2024/Darkelf-OSINT-Ai",
         releasesUrl: "https://github.com/Darkelf2024/Darkelf-OSINT-Ai/releases"
-    },
-    mini_browser: {
-        org: "Darkelf2024",
-        repo: "Darkelf-Mini-Browser",
-        url: "https://github.com/Darkelf2024/Darkelf-Mini-Browser",
-        releasesUrl: "https://github.com/Darkelf2024/Darkelf-Mini-Browser/releases"
     }
 };
 const PRODUCT_META = {
@@ -245,13 +196,6 @@ const PRODUCT_META = {
         shortDescription: "AI-powered Open-Source Intelligence assistant. Combines traditional OSINT workflows with local AI reasoning via Ollama. Modular, ethical, and built for investigators.",
         color: "var(--accent-4)",
         colorRgb: "255,152,0"
-    },
-    mini_browser: {
-        displayName: "Darkelf Mini Browser",
-        tagline: "Stealth · Hardened · Ephemeral — PySide6 + Tor · Windows · Linux · macOS",
-        shortDescription: "Next-generation privacy mini browser built on PySide6/QtWebEngine. Tor-by-default, SuperHardenedPage JS shields, network adblock, and full ephemeral session isolation.",
-        color: "var(--accent-5)",
-        colorRgb: "0,200,180"
     }
 };
 }),
@@ -327,8 +271,7 @@ function resolveDownload(product, platform, version) {
     const validProducts = [
         "cocoa",
         "shadow_lite",
-        "osint_ai",
-        "mini_browser"
+        "osint_ai"
     ];
     const validPlatforms = [
         "windows",
@@ -1008,7 +951,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$PlatformPills$
 ;
 ;
 ;
-function DownloadCenterClient({ cocoaRelease, shadowRelease, osintAiRelease, miniRelease }) {
+function DownloadCenterClient({ cocoaRelease, shadowRelease, osintAiRelease }) {
     const detected = (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$PlatformPills$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useDetectedPlatform"])();
     const [selected, setSelected] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [autoDetected, setAutoDetected] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -1034,7 +977,7 @@ function DownloadCenterClient({ cocoaRelease, shadowRelease, osintAiRelease, min
                         onChange: setSelected
                     }, void 0, false, {
                         fileName: "[project]/components/DownloadCenterClient.tsx",
-                        lineNumber: 39,
+                        lineNumber: 37,
                         columnNumber: 9
                     }, this),
                     detected && selected !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1046,7 +989,7 @@ function DownloadCenterClient({ cocoaRelease, shadowRelease, osintAiRelease, min
                                 "aria-hidden": "true"
                             }, void 0, false, {
                                 fileName: "[project]/components/DownloadCenterClient.tsx",
-                                lineNumber: 42,
+                                lineNumber: 40,
                                 columnNumber: 13
                             }, this),
                             "Detected:",
@@ -1055,13 +998,13 @@ function DownloadCenterClient({ cocoaRelease, shadowRelease, osintAiRelease, min
                                 children: detected === "windows" ? "Windows" : detected === "macos" ? "macOS" : "Linux"
                             }, void 0, false, {
                                 fileName: "[project]/components/DownloadCenterClient.tsx",
-                                lineNumber: 44,
+                                lineNumber: 42,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/DownloadCenterClient.tsx",
-                        lineNumber: 41,
+                        lineNumber: 39,
                         columnNumber: 11
                     }, this),
                     !detected && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1073,20 +1016,20 @@ function DownloadCenterClient({ cocoaRelease, shadowRelease, osintAiRelease, min
                                 "aria-hidden": "true"
                             }, void 0, false, {
                                 fileName: "[project]/components/DownloadCenterClient.tsx",
-                                lineNumber: 51,
+                                lineNumber: 49,
                                 columnNumber: 13
                             }, this),
                             "OS not auto-detected — both platforms always shown"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/DownloadCenterClient.tsx",
-                        lineNumber: 50,
+                        lineNumber: 48,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/DownloadCenterClient.tsx",
-                lineNumber: 38,
+                lineNumber: 36,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1098,7 +1041,7 @@ function DownloadCenterClient({ cocoaRelease, shadowRelease, osintAiRelease, min
                         highlightPlatform: highlight
                     }, void 0, false, {
                         fileName: "[project]/components/DownloadCenterClient.tsx",
-                        lineNumber: 59,
+                        lineNumber: 57,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ProductCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ProductCard"], {
@@ -1107,7 +1050,7 @@ function DownloadCenterClient({ cocoaRelease, shadowRelease, osintAiRelease, min
                         highlightPlatform: highlight
                     }, void 0, false, {
                         fileName: "[project]/components/DownloadCenterClient.tsx",
-                        lineNumber: 64,
+                        lineNumber: 62,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ProductCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ProductCard"], {
@@ -1116,28 +1059,19 @@ function DownloadCenterClient({ cocoaRelease, shadowRelease, osintAiRelease, min
                         highlightPlatform: highlight
                     }, void 0, false, {
                         fileName: "[project]/components/DownloadCenterClient.tsx",
-                        lineNumber: 69,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ProductCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ProductCard"], {
-                        productId: "mini_browser",
-                        release: miniRelease,
-                        highlightPlatform: highlight
-                    }, void 0, false, {
-                        fileName: "[project]/components/DownloadCenterClient.tsx",
-                        lineNumber: 74,
+                        lineNumber: 67,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/DownloadCenterClient.tsx",
-                lineNumber: 58,
+                lineNumber: 56,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/DownloadCenterClient.tsx",
-        lineNumber: 36,
+        lineNumber: 34,
         columnNumber: 5
     }, this);
 }
