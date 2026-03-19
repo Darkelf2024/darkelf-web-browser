@@ -154,6 +154,7 @@ function EntryCutscene({ onComplete }) {
         });
     };
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const currentTimers = timers.current;
         // Only show once per browser session
         if (sessionStorage.getItem(SESSION_KEY)) {
             onComplete?.();
@@ -171,12 +172,12 @@ function EntryCutscene({ onComplete }) {
         // Try to prime playback muted to satisfy autoplay policies (mobile/desktop)
         audioRef.current.play().then(()=>setNeedsUserAudio(false)).catch(()=>setNeedsUserAudio(true));
         const totalDuration = FRAME_DURATION_MS * frames.length;
-        timers.current.cycle = setInterval(()=>{
+        currentTimers.cycle = setInterval(()=>{
             setFrameIndex((prev)=>prev + 1 < frames.length ? prev + 1 : prev);
         }, FRAME_DURATION_MS);
-        timers.current.fade = setTimeout(()=>setFading(true), totalDuration - FADE_LEAD_MS);
+        currentTimers.fade = setTimeout(()=>setFading(true), totalDuration - FADE_LEAD_MS);
         const scheduleMusic = (delay)=>{
-            timers.current.music = setTimeout(()=>{
+            currentTimers.music = setTimeout(()=>{
                 startAudioWithFade().catch(()=>{
                     // Playback blocked: prompt user
                     setNeedsUserAudio(true);
@@ -184,19 +185,19 @@ function EntryCutscene({ onComplete }) {
             }, delay);
         };
         scheduleMusic(MUSIC_DELAY_MS);
-        timers.current.hide = setTimeout(()=>{
+        currentTimers.hide = setTimeout(()=>{
             fadeOutAndStop().finally(()=>{
                 setVisible(false);
                 onComplete?.();
             });
         }, totalDuration);
         return ()=>{
-            if (timers.current.cycle) clearInterval(timers.current.cycle);
-            if (timers.current.fade) clearTimeout(timers.current.fade);
-            if (timers.current.hide) clearTimeout(timers.current.hide);
-            if (timers.current.music) clearTimeout(timers.current.music);
-            if (timers.current.fadeIn) clearInterval(timers.current.fadeIn);
-            if (timers.current.fadeOut) clearInterval(timers.current.fadeOut);
+            if (currentTimers.cycle) clearInterval(currentTimers.cycle);
+            if (currentTimers.fade) clearTimeout(currentTimers.fade);
+            if (currentTimers.hide) clearTimeout(currentTimers.hide);
+            if (currentTimers.music) clearTimeout(currentTimers.music);
+            if (currentTimers.fadeIn) clearInterval(currentTimers.fadeIn);
+            if (currentTimers.fadeOut) clearInterval(currentTimers.fadeOut);
             if (audioRef.current) {
                 audioRef.current.pause();
                 audioRef.current.currentTime = 0;
@@ -251,19 +252,19 @@ function EntryCutscene({ onComplete }) {
                     type: "video/mp4"
                 }, void 0, false, {
                     fileName: "[project]/components/EntryCutscene.tsx",
-                    lineNumber: 244,
+                    lineNumber: 246,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/EntryCutscene.tsx",
-                lineNumber: 236,
+                lineNumber: 238,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "entry-cutscene__overlay"
             }, void 0, false, {
                 fileName: "[project]/components/EntryCutscene.tsx",
-                lineNumber: 246,
+                lineNumber: 248,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -276,32 +277,32 @@ function EntryCutscene({ onComplete }) {
                             children: frame.label
                         }, void 0, false, {
                             fileName: "[project]/components/EntryCutscene.tsx",
-                            lineNumber: 249,
+                            lineNumber: 251,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                             children: frame.title
                         }, void 0, false, {
                             fileName: "[project]/components/EntryCutscene.tsx",
-                            lineNumber: 250,
+                            lineNumber: 252,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             children: frame.body
                         }, void 0, false, {
                             fileName: "[project]/components/EntryCutscene.tsx",
-                            lineNumber: 251,
+                            lineNumber: 253,
                             columnNumber: 11
                         }, this)
                     ]
                 }, frameIndex, true, {
                     fileName: "[project]/components/EntryCutscene.tsx",
-                    lineNumber: 248,
+                    lineNumber: 250,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/EntryCutscene.tsx",
-                lineNumber: 247,
+                lineNumber: 249,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -311,7 +312,7 @@ function EntryCutscene({ onComplete }) {
                 children: "Skip intro →"
             }, void 0, false, {
                 fileName: "[project]/components/EntryCutscene.tsx",
-                lineNumber: 254,
+                lineNumber: 256,
                 columnNumber: 7
             }, this),
             needsUserAudio && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -322,13 +323,13 @@ function EntryCutscene({ onComplete }) {
                 children: "Enable sound"
             }, void 0, false, {
                 fileName: "[project]/components/EntryCutscene.tsx",
-                lineNumber: 258,
+                lineNumber: 260,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/EntryCutscene.tsx",
-        lineNumber: 232,
+        lineNumber: 234,
         columnNumber: 5
     }, this);
 }

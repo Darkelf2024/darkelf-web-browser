@@ -3,17 +3,8 @@
   "pages404": true,
   "appType": "app",
   "caseSensitive": false,
-  "basePath": "/darkelf-web-browser",
+  "basePath": "",
   "redirects": [
-    {
-      "source": "/darkelf-web-browser/",
-      "destination": "/darkelf-web-browser",
-      "basePath": false,
-      "internal": true,
-      "priority": true,
-      "statusCode": 308,
-      "regex": "^/darkelf-web-browser/$"
-    },
     {
       "source": "/:path+/",
       "destination": "/:path+",
@@ -25,13 +16,7 @@
   ],
   "headers": [],
   "rewrites": {
-    "beforeFiles": [
-      {
-        "source": "/darkelf-web-browser//_next/:path+",
-        "destination": "/darkelf-web-browser/_next/:path+",
-        "regex": "^/darkelf-web-browser//_next(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))(?:/)?$"
-      }
-    ],
+    "beforeFiles": [],
     "afterFiles": [],
     "fallback": []
   },
