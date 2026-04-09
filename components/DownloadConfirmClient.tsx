@@ -5,7 +5,6 @@ import { useState } from "react";
 import type { Release, Artifact } from "@/lib/releases";
 import { formatBytes, platformLabel, fileTypeLabel, formatDate } from "@/lib/releases";
 import { PRODUCT_META } from "@/lib/config";
-import { CopyButton } from "@/components/CopyButton";
 
 interface DownloadConfirmClientProps {
   release: Release;
@@ -75,13 +74,7 @@ export function DownloadConfirmClient({
             <dt>File Size</dt>
             <dd className="mono">{formatBytes(artifact.sizeBytes)}</dd>
           </div>
-          <div className="dl-confirm__row dl-confirm__row--sha">
-            <dt>SHA-256</dt>
-            <dd>
-              <code className="sha-value sha-value--full">{artifact.sha256}</code>
-              <CopyButton text={artifact.sha256} label="Copy SHA256" />
-            </dd>
-          </div>
+
         </dl>
 
         {/* Warning */}
@@ -91,17 +84,6 @@ export function DownloadConfirmClient({
             <span>
               <strong>Nightly build</strong> — not production-ready. Use only for
               testing.
-            </span>
-          </div>
-        )}
-
-        {/* Note about placeholder SHA */}
-        {artifact.sha256.startsWith("TODO_") && (
-          <div className="dl-confirm__warn dl-confirm__warn--error" role="alert">
-            <i className="bi bi-exclamation-octagon" aria-hidden="true" />
-            <span>
-              <strong>SHA-256 not yet published</strong> — this is a placeholder.
-              Do not download until a real hash is provided.
             </span>
           </div>
         )}
@@ -116,9 +98,9 @@ export function DownloadConfirmClient({
             type="button"
             className="btn primary dl-confirm__go-btn"
             onClick={handleContinue}
-            disabled={confirmed || artifact.sha256.startsWith("TODO_")}
+            disabled={confirmed}
             aria-label={`Continue and download ${meta.displayName} for ${platformLabel(artifact.platform)}`}
-            aria-disabled={confirmed || artifact.sha256.startsWith("TODO_")}
+            aria-disabled={confirmed}
           >
             {confirmed ? (
               <>

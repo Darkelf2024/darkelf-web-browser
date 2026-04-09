@@ -1,6 +1,6 @@
 import type { Release, ProductId, Channel, Platform } from "@/lib/releases";
 import { formatDate, platformLabel } from "@/lib/releases";
-import { PRODUCT_META } from "@/lib/config";
+import { PRODUCT_META, REPO_CONFIG } from "@/lib/config";
 import Link from "next/link";
 import { StatusBadge } from "@/components/StatusBadge";
 
@@ -87,10 +87,23 @@ export function VersionTimeline({
 
             <a
               className="btn vtl-detail-btn"
-              href={`/releases/${release.product}/${encodeURIComponent(release.version)}`}
-              aria-label={`View details for ${meta.displayName} v${release.version}`}
+              href={release.releasePageUrl ?? REPO_CONFIG[release.product].releasesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${meta.displayName} v${release.version} on GitHub`}
             >
+              <i className="bi bi-github" aria-hidden="true" />
               View Release
+            </a>
+            <a
+              className="btn vtl-repo-btn"
+              href={REPO_CONFIG[release.product].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Go to ${meta.displayName} repository on GitHub`}
+            >
+              <i className="bi bi-box-arrow-up-right" aria-hidden="true" />
+              Repo
             </a>
           </li>
         );

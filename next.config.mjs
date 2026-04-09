@@ -1,10 +1,14 @@
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
 const hasCustomDomain = true;
 
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
   basePath: isProd && !hasCustomDomain ? '/darkelf-web-browser' : '',
   assetPrefix: isProd && !hasCustomDomain ? '/darkelf-web-browser/' : '',
   env: {
@@ -12,6 +16,9 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+  },
+  turbopack: {
+    root: __dirname,
   },
 };
 

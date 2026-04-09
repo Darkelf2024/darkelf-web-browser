@@ -1,2 +1,7 @@
 node_modules
 .next
+out
+.next/
+*.sst
+*.meta
+tsconfig.tsbuildinfo

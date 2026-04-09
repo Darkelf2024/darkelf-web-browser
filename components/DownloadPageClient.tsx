@@ -11,9 +11,9 @@ function DownloadPageInner() {
   const searchParams = useSearchParams();
 
   const result = resolveDownload(
-    searchParams.get("product"),
-    searchParams.get("platform"),
-    searchParams.get("version")
+    searchParams?.get("product") ?? null,
+    searchParams?.get("platform") ?? null,
+    searchParams?.get("version") ?? null
   );
 
   if (!result.ok) {
