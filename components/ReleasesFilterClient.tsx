@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import type { Release, ProductId, Channel, Platform } from "@/lib/releases";
+import type { Release, ProductId, Channel, Platform, Artifact } from "@/lib/releases";
 import { VersionTimeline } from "@/components/VersionTimeline";
 import { PlatformPills } from "@/components/PlatformPills";
 
@@ -11,8 +11,24 @@ interface ReleasesFilterClientProps {
 }
 
 function ReleasesFilterInner({ releases }: ReleasesFilterClientProps) {
+  const [releasesData, setReleasesData] = useState<Release[]>(releases);
+  const [fetchError, setFetchError] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    function load() {
+      fetch("/api/releases")
+        .then((r) => r.json())
+        .then((data) => { if (!cancelled) setReleasesData(data); })
+        .catch(() => { if (!cancelled) setFetchError(true); });
+    }
+    load();
+    const interval = setInterval(load, 60_000);
+    return () => { cancelled = true; clearInterval(interval); };
+  }, []);
+
   const searchParams = useSearchParams();
-  const rawProduct = searchParams.get("product");
+  const rawProduct = searchParams?.get("product") || null;
   const parsedProduct: ProductId | null =
     rawProduct === "cocoa" || rawProduct === "shadow_lite" || rawProduct === "osint_ai"
       ? rawProduct
@@ -22,15 +38,17 @@ function ReleasesFilterInner({ releases }: ReleasesFilterClientProps) {
   const [channel, setChannel] = useState<Channel | null>(null);
   const [platform, setPlatform] = useState<Platform | null>(null);
 
-  const totalVisible = releases.filter((r) => {
+  const totalVisible = releasesData.filter((r: Release) => {
     if (product && r.product !== product) return false;
     if (channel && r.channel !== channel) return false;
-    if (platform && !r.artifacts.some((a) => a.platform === platform)) return false;
+    if (platform && !r.artifacts.some((a: Artifact) => a.platform === platform)) return false;
     return true;
   }).length;
 
   return (
     <div className="releases-filter-wrap">
+      {fetchError && <div>Error loading releases. Please try again later.</div>}
+
       {/* Filter bar */}
       <div className="releases-filters" role="group" aria-label="Filter releases">
         {/* Product filter */}
@@ -120,7 +138,7 @@ function ReleasesFilterInner({ releases }: ReleasesFilterClientProps) {
 
       {/* Timeline */}
       <VersionTimeline
-        releases={releases}
+        releases={releasesData}
         filterProduct={product}
         filterChannel={channel}
         filterPlatform={platform}

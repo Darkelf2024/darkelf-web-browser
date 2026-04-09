@@ -5,8 +5,6 @@ import {
   fileTypeLabel,
   isAllowedDownloadUrl,
 } from "@/lib/releases";
-import { CopyButton } from "@/components/CopyButton";
-
 interface ArtifactRowProps {
   artifact: Artifact;
   release: Release;
@@ -46,17 +44,7 @@ function ArtifactRow({ artifact, release }: ArtifactRowProps) {
         <span className="mono">{formatBytes(artifact.sizeBytes)}</span>
       </td>
 
-      {/* SHA-256 */}
-      <td className="artifact-cell artifact-cell--sha">
-        <div className="sha-row">
-          <code className="sha-value" title={artifact.sha256}>
-            {artifact.sha256.length > 20
-              ? `${artifact.sha256.slice(0, 12)}…${artifact.sha256.slice(-8)}`
-              : artifact.sha256}
-          </code>
-          <CopyButton text={artifact.sha256} label="Copy SHA256" />
-        </div>
-      </td>
+      {/* SHA-256 column removed */}
 
       {/* Actions */}
       <td className="artifact-cell artifact-cell--actions">
@@ -74,15 +62,28 @@ function ArtifactRow({ artifact, release }: ArtifactRowProps) {
         {isValidUrl ? (
           <a
             className="btn primary artifact-dl-btn"
-            href={`/download?product=${release.product}&platform=${artifact.platform}&version=${encodeURIComponent(release.version)}`}
+            href={artifact.url}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label={`Download ${platformLabel(artifact.platform)} build (${fileTypeLabel(artifact.fileType)})`}
+          >
+            <i className="bi bi-download" aria-hidden="true" />
+            <span>Download</span>
+          </a>
+        ) : release.zipballUrl ? (
+          <a
+            className="btn primary artifact-dl-btn"
+            href={release.zipballUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download source archive"
           >
             <i className="bi bi-download" aria-hidden="true" />
             <span>Download</span>
           </a>
         ) : (
           <span className="artifact-unavailable" aria-label="Download not yet available">
-            Pending Release
+            Coming Soon
           </span>
         )}
       </td>
@@ -119,7 +120,6 @@ export function ArtifactTable({
             <th scope="col">Platform</th>
             <th scope="col">Arch</th>
             <th scope="col">Size</th>
-            <th scope="col">SHA-256</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>

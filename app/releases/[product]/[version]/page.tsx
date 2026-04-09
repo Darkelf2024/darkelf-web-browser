@@ -15,7 +15,7 @@ import { VerifySteps } from "@/components/VerifySteps";
 import type { ProductId } from "@/data/releases";
 
 interface ReleaseDetailParams {
-  params: { product: string; version: string };
+  params: Promise<{ product: string; version: string }>;
 }
 
 export async function generateStaticParams() {
@@ -28,9 +28,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: ReleaseDetailParams): Promise<Metadata> {
+  const { product, version } = await params;
   const release = getRelease(
-    params.product as ProductId,
-    decodeURIComponent(params.version)
+    product as ProductId,
+    decodeURIComponent(version)
   );
   if (!release) return { title: "Release Not Found — Darkelf" };
   const meta = PRODUCT_META[release.product];
@@ -45,17 +46,21 @@ export async function generateMetadata({
   };
 }
 
-export default function ReleaseDetailPage({ params }: ReleaseDetailParams) {
+export default async function ReleaseDetailPage({ params }: ReleaseDetailParams) {
+  const resolvedParams = await params;
   const validProducts: ProductId[] = ["cocoa", "shadow_lite", "osint_ai"];
-  if (!validProducts.includes(params.product as ProductId)) {
+  if (!validProducts.includes(resolvedParams.product as ProductId)) {
     notFound();
   }
 
   const release = getRelease(
-    params.product as ProductId,
-    decodeURIComponent(params.version)
+    resolvedParams.product as ProductId,
+    decodeURIComponent(resolvedParams.version)
   );
-  if (!release) notFound();
+
+  if (!release) {
+    notFound();
+  }
 
   const meta = PRODUCT_META[release.product];
 

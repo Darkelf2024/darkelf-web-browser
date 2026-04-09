@@ -30,8 +30,10 @@ const releases = [
     {
         product: "cocoa",
         channel: "stable",
-        version: "4.0.0",
-        dateISO: "2026-02-01",
+        version: "4.3",
+        dateISO: "2026-03-18",
+        releasePageUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tag/v4.3",
+        zipballUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/archive/refs/tags/v4.3.zip",
         highlights: [
             "Secure Snapshot (Cmd+S): strips JS → static HTML, saves locally; PDF export optional",
             "TLS indicator — green on HTTPS, white on internal pages, red when blocked",
@@ -45,13 +47,10 @@ const releases = [
                 platform: "macos",
                 arch: "x64",
                 fileType: "dmg",
-                // TODO: replace with real asset URL after creating the GitHub Release
-                url: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/download/TODO_VERSION/DarkelfCocoa-TODO_macos-x64.dmg",
+                url: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/archive/refs/tags/v4.3.zip",
                 sizeBytes: 48_234_567,
-                // TODO: replace with real SHA-256 hex digest
                 sha256: "TODO_SHA256_PLACEHOLDER_REPLACE_WITH_ACTUAL_HASH_BEFORE_RELEASE",
-                // TODO: replace with real notes URL
-                notesUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tag/v4.0.0"
+                notesUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tag/v4.3"
             }
         ]
     },
@@ -60,6 +59,8 @@ const releases = [
         channel: "nightly",
         version: "0.1.0-nightly",
         dateISO: "2026-02-15",
+        releasePageUrl: "https://github.com/Darkelf2024/Darkelf-Shadow/releases",
+        zipballUrl: "https://github.com/Darkelf2024/Darkelf-Shadow/archive/refs/heads/main.zip",
         highlights: [
             "Tab isolation + hardened sandbox (PySide6 / QtWebEngine rewrite)",
             "Request interception via QWebEngineUrlRequestInterceptor + injection-based mitigation",
@@ -98,6 +99,8 @@ const releases = [
         channel: "nightly",
         version: "0.1.0-alpha",
         dateISO: "2026-02-01",
+        releasePageUrl: "https://github.com/Darkelf2024/Darkelf-OSINT-Ai/releases",
+        zipballUrl: "https://github.com/Darkelf2024/Darkelf-OSINT-Ai/archive/refs/heads/main.zip",
         highlights: [
             "AI-assisted analysis — leverages local Ollama models to interpret and correlate OSINT data",
             "Multi-source intelligence — domains, usernames, emails, IPs, and social platforms",

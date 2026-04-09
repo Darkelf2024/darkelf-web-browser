@@ -1,1 +1,3 @@
-{}
+{
+  "/api/releases": "pages/api/releases.js"
+}

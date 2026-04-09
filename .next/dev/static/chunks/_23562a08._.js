@@ -211,8 +211,10 @@ const releases = [
     {
         product: "cocoa",
         channel: "stable",
-        version: "4.0.0",
-        dateISO: "2026-02-01",
+        version: "4.3",
+        dateISO: "2026-03-18",
+        releasePageUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tag/v4.3",
+        zipballUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/archive/refs/tags/v4.3.zip",
         highlights: [
             "Secure Snapshot (Cmd+S): strips JS → static HTML, saves locally; PDF export optional",
             "TLS indicator — green on HTTPS, white on internal pages, red when blocked",
@@ -226,13 +228,10 @@ const releases = [
                 platform: "macos",
                 arch: "x64",
                 fileType: "dmg",
-                // TODO: replace with real asset URL after creating the GitHub Release
-                url: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/download/TODO_VERSION/DarkelfCocoa-TODO_macos-x64.dmg",
+                url: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/archive/refs/tags/v4.3.zip",
                 sizeBytes: 48_234_567,
-                // TODO: replace with real SHA-256 hex digest
                 sha256: "TODO_SHA256_PLACEHOLDER_REPLACE_WITH_ACTUAL_HASH_BEFORE_RELEASE",
-                // TODO: replace with real notes URL
-                notesUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tag/v4.0.0"
+                notesUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tag/v4.3"
             }
         ]
     },
@@ -241,6 +240,8 @@ const releases = [
         channel: "nightly",
         version: "0.1.0-nightly",
         dateISO: "2026-02-15",
+        releasePageUrl: "https://github.com/Darkelf2024/Darkelf-Shadow/releases",
+        zipballUrl: "https://github.com/Darkelf2024/Darkelf-Shadow/archive/refs/heads/main.zip",
         highlights: [
             "Tab isolation + hardened sandbox (PySide6 / QtWebEngine rewrite)",
             "Request interception via QWebEngineUrlRequestInterceptor + injection-based mitigation",
@@ -279,6 +280,8 @@ const releases = [
         channel: "nightly",
         version: "0.1.0-alpha",
         dateISO: "2026-02-01",
+        releasePageUrl: "https://github.com/Darkelf2024/Darkelf-OSINT-Ai/releases",
+        zipballUrl: "https://github.com/Darkelf2024/Darkelf-OSINT-Ai/archive/refs/heads/main.zip",
         highlights: [
             "AI-assisted analysis — leverages local Ollama models to interpret and correlate OSINT data",
             "Multi-source intelligence — domains, usernames, emails, IPs, and social platforms",
@@ -759,12 +762,46 @@ function VersionTimeline({ releases, filterProduct, filterChannel, filterPlatfor
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         className: "btn vtl-detail-btn",
-                        href: `/releases/${release.product}/${encodeURIComponent(release.version)}`,
-                        "aria-label": `View details for ${meta.displayName} v${release.version}`,
-                        children: "View Release"
-                    }, void 0, false, {
+                        href: release.releasePageUrl ?? __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["REPO_CONFIG"][release.product].releasesUrl,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                        "aria-label": `View ${meta.displayName} v${release.version} on GitHub`,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {
+                                className: "bi bi-github",
+                                "aria-hidden": "true"
+                            }, void 0, false, {
+                                fileName: "[project]/components/VersionTimeline.tsx",
+                                lineNumber: 95,
+                                columnNumber: 15
+                            }, this),
+                            "View Release"
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/components/VersionTimeline.tsx",
                         lineNumber: 88,
+                        columnNumber: 13
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                        className: "btn vtl-repo-btn",
+                        href: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["REPO_CONFIG"][release.product].url,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                        "aria-label": `Go to ${meta.displayName} repository on GitHub`,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {
+                                className: "bi bi-box-arrow-up-right",
+                                "aria-hidden": "true"
+                            }, void 0, false, {
+                                fileName: "[project]/components/VersionTimeline.tsx",
+                                lineNumber: 105,
+                                columnNumber: 15
+                            }, this),
+                            "Repo"
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/components/VersionTimeline.tsx",
+                        lineNumber: 98,
                         columnNumber: 13
                     }, this)
                 ]
@@ -935,13 +972,41 @@ var _s = __turbopack_context__.k.signature();
 ;
 function ReleasesFilterInner({ releases }) {
     _s();
+    const [releasesData, setReleasesData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(releases);
+    const [fetchError, setFetchError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "ReleasesFilterInner.useEffect": ()=>{
+            let cancelled = false;
+            function load() {
+                fetch("/api/releases").then({
+                    "ReleasesFilterInner.useEffect.load": (r)=>r.json()
+                }["ReleasesFilterInner.useEffect.load"]).then({
+                    "ReleasesFilterInner.useEffect.load": (data)=>{
+                        if (!cancelled) setReleasesData(data);
+                    }
+                }["ReleasesFilterInner.useEffect.load"]).catch({
+                    "ReleasesFilterInner.useEffect.load": ()=>{
+                        if (!cancelled) setFetchError(true);
+                    }
+                }["ReleasesFilterInner.useEffect.load"]);
+            }
+            load();
+            const interval = setInterval(load, 60_000);
+            return ({
+                "ReleasesFilterInner.useEffect": ()=>{
+                    cancelled = true;
+                    clearInterval(interval);
+                }
+            })["ReleasesFilterInner.useEffect"];
+        }
+    }["ReleasesFilterInner.useEffect"], []);
     const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSearchParams"])();
-    const rawProduct = searchParams.get("product");
+    const rawProduct = searchParams?.get("product") || null;
     const parsedProduct = rawProduct === "cocoa" || rawProduct === "shadow_lite" || rawProduct === "osint_ai" ? rawProduct : null;
     const [product, setProduct] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(parsedProduct);
     const [channel, setChannel] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [platform, setPlatform] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const totalVisible = releases.filter((r)=>{
+    const totalVisible = releasesData.filter((r)=>{
         if (product && r.product !== product) return false;
         if (channel && r.channel !== channel) return false;
         if (platform && !r.artifacts.some((a)=>a.platform === platform)) return false;
@@ -950,6 +1015,13 @@ function ReleasesFilterInner({ releases }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "releases-filter-wrap",
         children: [
+            fetchError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                children: "Error loading releases. Please try again later."
+            }, void 0, false, {
+                fileName: "[project]/components/ReleasesFilterClient.tsx",
+                lineNumber: 50,
+                columnNumber: 22
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "releases-filters",
                 role: "group",
@@ -963,7 +1035,7 @@ function ReleasesFilterInner({ releases }) {
                                 children: "Product"
                             }, void 0, false, {
                                 fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                lineNumber: 38,
+                                lineNumber: 56,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -977,7 +1049,7 @@ function ReleasesFilterInner({ releases }) {
                                         children: "All"
                                     }, void 0, false, {
                                         fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                        lineNumber: 40,
+                                        lineNumber: 58,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -988,7 +1060,7 @@ function ReleasesFilterInner({ releases }) {
                                         children: "Cocoa"
                                     }, void 0, false, {
                                         fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                        lineNumber: 48,
+                                        lineNumber: 66,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -999,7 +1071,7 @@ function ReleasesFilterInner({ releases }) {
                                         children: "Shadow Lite"
                                     }, void 0, false, {
                                         fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                        lineNumber: 56,
+                                        lineNumber: 74,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1010,19 +1082,19 @@ function ReleasesFilterInner({ releases }) {
                                         children: "OSINT AI"
                                     }, void 0, false, {
                                         fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                        lineNumber: 64,
+                                        lineNumber: 82,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                lineNumber: 39,
+                                lineNumber: 57,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/ReleasesFilterClient.tsx",
-                        lineNumber: 37,
+                        lineNumber: 55,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1033,7 +1105,7 @@ function ReleasesFilterInner({ releases }) {
                                 children: "Channel"
                             }, void 0, false, {
                                 fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                lineNumber: 77,
+                                lineNumber: 95,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1047,7 +1119,7 @@ function ReleasesFilterInner({ releases }) {
                                         children: "All"
                                     }, void 0, false, {
                                         fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                        lineNumber: 79,
+                                        lineNumber: 97,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1064,14 +1136,14 @@ function ReleasesFilterInner({ releases }) {
                                                 "aria-hidden": "true"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                                lineNumber: 93,
+                                                lineNumber: 111,
                                                 columnNumber: 15
                                             }, this),
                                             "Stable"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                        lineNumber: 87,
+                                        lineNumber: 105,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1088,26 +1160,26 @@ function ReleasesFilterInner({ releases }) {
                                                 "aria-hidden": "true"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                                lineNumber: 102,
+                                                lineNumber: 120,
                                                 columnNumber: 15
                                             }, this),
                                             "Nightly"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                        lineNumber: 96,
+                                        lineNumber: 114,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                lineNumber: 78,
+                                lineNumber: 96,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/ReleasesFilterClient.tsx",
-                        lineNumber: 76,
+                        lineNumber: 94,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1118,7 +1190,7 @@ function ReleasesFilterInner({ releases }) {
                                 children: "Platform"
                             }, void 0, false, {
                                 fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                lineNumber: 110,
+                                lineNumber: 128,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$PlatformPills$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PlatformPills"], {
@@ -1126,19 +1198,19 @@ function ReleasesFilterInner({ releases }) {
                                 onChange: setPlatform
                             }, void 0, false, {
                                 fileName: "[project]/components/ReleasesFilterClient.tsx",
-                                lineNumber: 111,
+                                lineNumber: 129,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/ReleasesFilterClient.tsx",
-                        lineNumber: 109,
+                        lineNumber: 127,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/ReleasesFilterClient.tsx",
-                lineNumber: 35,
+                lineNumber: 53,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1151,7 +1223,7 @@ function ReleasesFilterInner({ releases }) {
                         children: totalVisible
                     }, void 0, false, {
                         fileName: "[project]/components/ReleasesFilterClient.tsx",
-                        lineNumber: 117,
+                        lineNumber: 135,
                         columnNumber: 17
                     }, this),
                     " ",
@@ -1159,27 +1231,27 @@ function ReleasesFilterInner({ releases }) {
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/ReleasesFilterClient.tsx",
-                lineNumber: 116,
+                lineNumber: 134,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$VersionTimeline$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["VersionTimeline"], {
-                releases: releases,
+                releases: releasesData,
                 filterProduct: product,
                 filterChannel: channel,
                 filterPlatform: platform
             }, void 0, false, {
                 fileName: "[project]/components/ReleasesFilterClient.tsx",
-                lineNumber: 122,
+                lineNumber: 140,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/ReleasesFilterClient.tsx",
-        lineNumber: 33,
+        lineNumber: 49,
         columnNumber: 5
     }, this);
 }
-_s(ReleasesFilterInner, "YSzTnuK374aoJeHT9DEiSX+mMfo=", false, function() {
+_s(ReleasesFilterInner, "QE2Geu+WX3860nIKz10Q6fCuYtM=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSearchParams"]
     ];
@@ -1192,19 +1264,19 @@ function ReleasesFilterClient(props) {
             children: "Loading filters…"
         }, void 0, false, {
             fileName: "[project]/components/ReleasesFilterClient.tsx",
-            lineNumber: 134,
+            lineNumber: 152,
             columnNumber: 25
         }, void 0),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ReleasesFilterInner, {
             ...props
         }, void 0, false, {
             fileName: "[project]/components/ReleasesFilterClient.tsx",
-            lineNumber: 135,
+            lineNumber: 153,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/ReleasesFilterClient.tsx",
-        lineNumber: 134,
+        lineNumber: 152,
         columnNumber: 5
     }, this);
 }
