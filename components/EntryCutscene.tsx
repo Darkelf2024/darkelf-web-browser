@@ -27,6 +27,21 @@ const frames = [
 ] as const;
 
 const SESSION_KEY = "darkelf_cutscene_seen";
+function getSessionFlag(key: string): string | null {
+  try {
+    return window.sessionStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function setSessionFlag(key: string, value: string): void {
+  try {
+    window.sessionStorage.setItem(key, value);
+  } catch {
+    // Safari private browsing / storage restrictions
+  }
+}
 const FRAME_DURATION_MS = 16000; // 16s per frame for readability
 const FADE_LEAD_MS = 1500; // start fading shortly before the final hide
 const MUSIC_DELAY_MS = 30000; // start music at 30s mark
@@ -138,7 +153,7 @@ export function EntryCutscene({ onComplete }: EntryCutsceneProps) {
     }
 
     // Mark as seen immediately so re-renders/navigation won't replay it
-    sessionStorage.setItem(SESSION_KEY, "1");
+    setSessionFlag(SESSION_KEY, "1");
     setVisible(true);
 
     audioRef.current = new Audio(asset("/intro-music.mp3"));
