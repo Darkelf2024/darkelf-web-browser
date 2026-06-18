@@ -54,10 +54,10 @@ export const releases: Release[] = [
   {
     product: "cocoa",
     channel: "stable",
-    version: "4.3",
+    version: "4.4.3",
     dateISO: "2026-03-18",
-    releasePageUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tag/4.4.3",
-    zipballUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/archive/refs/tag/v4.4.3.zip",
+    releasePageUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tag/v4.4.3",
+    zipballUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/archive/refs/tags/v4.4.3.zip",
     highlights: [
       "Secure Snapshot (Cmd+S): strips JS → static HTML, saves locally; PDF export optional",
       "TLS indicator — green on HTTPS, white on internal pages, red when blocked",
@@ -75,7 +75,7 @@ export const releases: Release[] = [
         url: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/archive/refs/tag/v4.4.3.zip",
         sizeBytes: 48_234_567,
         sha256: "TODO_SHA256_PLACEHOLDER_REPLACE_WITH_ACTUAL_HASH_BEFORE_RELEASE",
-        notesUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tag/v4.4.3",
+        notesUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tags/v4.4.3",
       },
     ],
   },
