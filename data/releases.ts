@@ -72,10 +72,10 @@ export const releases: Release[] = [
         arch: "x64",
         // Source archive until a notarized .dmg build is published.
         fileType: "zip",
-        url: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/archive/refs/tag/v4.4.3.zip",
+        url: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/archive/refs/tags/v4.4.3.zip",
         sizeBytes: 48_234_567,
         sha256: "TODO_SHA256_PLACEHOLDER_REPLACE_WITH_ACTUAL_HASH_BEFORE_RELEASE",
-        notesUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tags/v4.4.3",
+        notesUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tag/v4.4.3",
       },
     ],
   },
