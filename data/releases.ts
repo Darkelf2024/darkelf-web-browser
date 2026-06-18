@@ -65,17 +65,17 @@ export const releases: Release[] = [
       "Tab isolation + selective script / resource / tracker blocking (~100 rules, scalable)",
       "Minimal UX — non-persistent workflow, nothing lingers after close",
     ],
-    notesMarkdown: `## Darkelf Cocoa 4.3\n\n### What's New\n- Cocoa 4.x release with full security containment model\n- Secure Snapshot feature introduced (Cmd+S)\n- TLS indicator now shows block state in red\n- Canvas per-session rotation enabled by default\n\n### Known Issues\n- YouTube fullscreen may be impacted by custom toolbar overlay; toolbar rework in progress`,
+    notesMarkdown: `## Darkelf Cocoa 4.4.3\n\n### What's New\n- Cocoa 4.x release with full security containment model\n- Secure Snapshot feature introduced (Cmd+S)\n- TLS indicator now shows block state in red\n- Canvas per-session rotation enabled by default\n\n### Known Issues\n- YouTube fullscreen may be impacted by custom toolbar overlay; toolbar rework in progress`,
     artifacts: [
       {
         platform: "macos",
         arch: "x64",
         // Source archive until a notarized .dmg build is published.
         fileType: "zip",
-        url: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/archive/refs/tags/v4.3.zip",
+        url: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/archive/refs/tag/v4.4.3.zip",
         sizeBytes: 48_234_567,
         sha256: "TODO_SHA256_PLACEHOLDER_REPLACE_WITH_ACTUAL_HASH_BEFORE_RELEASE",
-        notesUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tag/v4.3",
+        notesUrl: "https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases/tag/v4.4.3",
       },
     ],
   },
