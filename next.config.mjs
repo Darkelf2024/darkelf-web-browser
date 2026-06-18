@@ -10,6 +10,13 @@ const hasCustomDomain = true;
 const nextConfig = {
   reactStrictMode: true,
 
+  // Static HTML export for GitHub Pages (served from public/CNAME → darkelfbrowser.com).
+  // NOTE: API routes and next.config `headers()` do NOT work with a static export.
+  // Security headers that a static host can honour are set via a <meta> CSP in
+  // app/layout.tsx. Header-only directives (HSTS, X-Frame-Options) require a
+  // real server (Cloudflare in front of Pages, or Vercel) to be enforced.
+  output: "export",
+
   basePath: isProd && !hasCustomDomain ? "/darkelf-web-browser" : "",
   assetPrefix: isProd && !hasCustomDomain ? "/darkelf-web-browser/" : "",
 
@@ -24,52 +31,6 @@ const nextConfig = {
 
   turbopack: {
     root: __dirname,
-  },
-
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          { key: "X-Frame-Options", value: "DENY" },
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
-          },
-          {
-            key: "Permissions-Policy",
-            value:
-              "camera=(), microphone=(), geolocation=(), payment=(), usb=(), fullscreen=(self)",
-          },
-          {
-            key: "Content-Security-Policy",
-            value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-              "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' data: blob:",
-              "font-src 'self' data:",
-              "media-src 'self' blob:",
-              "connect-src 'self' https://github.com https://api.github.com https://objects.githubusercontent.com",
-              "frame-ancestors 'none'",
-              "base-uri 'self'",
-              "form-action 'self'",
-              "object-src 'none'",
-              "upgrade-insecure-requests",
-            ].join("; "),
-          },
-          ...(isProd
-            ? [
-                {
-                  key: "Strict-Transport-Security",
-                  value: "max-age=31536000; includeSubDomains; preload",
-                },
-              ]
-            : []),
-        ],
-      },
-    ];
   },
 };
 

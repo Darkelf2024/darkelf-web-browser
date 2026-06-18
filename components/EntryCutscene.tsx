@@ -146,8 +146,10 @@ export function EntryCutscene({ onComplete }: EntryCutsceneProps) {
   useEffect(() => {
     const currentTimers = timers.current;
 
-    // Only show once per browser session
-    if (sessionStorage.getItem(SESSION_KEY)) {
+    // Only show once per browser session.
+    // Use the guarded helper — raw sessionStorage access throws in Safari
+    // private browsing / restricted-storage modes and crashes the page.
+    if (getSessionFlag(SESSION_KEY)) {
       onComplete?.();
       return;
     }

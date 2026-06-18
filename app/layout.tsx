@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+// Self-hosted (bundled by Next, served from same origin) — no third-party CDN.
+// Keeps the CSP tight and avoids leaking visitor IPs to a CDN.
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import { LiquidGlass } from '@/components/LiquidGlass';
 
 const mono = JetBrains_Mono({
   subsets: ['latin'],
@@ -21,98 +25,22 @@ export const metadata: Metadata = {
     template: '%s — Darkelf Browser',
   },
   description: siteDescription,
+  // A focused set — modern search engines ignore long keyword lists and may
+  // treat stuffing as a spam signal. Topical relevance comes from page content.
   keywords: [
-    // Brand
     'Darkelf Browser',
     'Darkelf Cocoa',
     'Darkelf Shadow',
     'Darkelf OSINT AI',
-    'Dr Kevin Moore browser',
-    // Privacy & Security
     'privacy browser',
-    'secure browser',
     'hardened browser',
-    'anonymous browser',
-    'private browser',
     'non-persistent browser',
-    'ephemeral browser',
-    'zero footprint browser',
-    'no tracking browser',
-    'privacy-first browser',
-    'open source privacy browser',
-    'incognito browser alternative',
-    // Anti-fingerprinting
     'anti-fingerprinting browser',
-    'fingerprint resistant browser',
-    'canvas fingerprint protection',
-    'WebGL fingerprint blocking',
-    'browser fingerprint spoofing',
-    'user agent spoofing',
-    'letterboxing browser',
-    // Tor / Network
-    'Tor browser',
-    'Tor browser alternative',
-    'Tor-native browser',
-    'SOCKS5 proxy browser',
-    'WebRTC leak prevention',
-    'WebRTC disabled browser',
-    'IP leak protection browser',
-    'proxy browser',
-    // Post-quantum
-    'post-quantum browser',
-    'PQC browser',
-    'quantum resistant browser',
-    'quantum safe browser',
-    'ML-KEM browser',
-    'post-quantum cryptography browser',
-    // Platform
+    'open source privacy browser',
     'macOS privacy browser',
     'Linux privacy browser',
     'Windows privacy browser',
-    'macOS secure browser',
-    'Linux hardened browser',
-    'PySide6 browser',
-    'QtWebEngine browser',
-    'WebKit browser macOS',
-    'Cocoa browser macOS',
-    'Python privacy browser',
-    // Session / Persistence
-    'session isolation browser',
-    'no cookies browser',
-    'no history browser',
-    'no cache browser',
-    'browser no logs',
-    'memory-only browser',
-    'ephemeral session browser',
-    // OSINT
     'OSINT browser',
-    'OSINT tools',
-    'open source intelligence browser',
-    'OSINT AI',
-    'AI OSINT assistant',
-    'Ollama OSINT',
-    'identity isolation browser',
-    'compartmentalized browsing',
-    'evidence capture browser',
-    // Security researcher
-    'security researcher browser',
-    'penetration testing browser',
-    'red team browser',
-    'cybersecurity browser',
-    'journalist privacy browser',
-    'activist browser',
-    'whistleblower browser',
-    // Verification
-    'SHA-256 browser download',
-    'verify browser download',
-    'checksum browser',
-    'secure download browser',
-    // General
-    'browser security',
-    'browser privacy',
-    'browser anonymity',
-    'download center',
-    'browser download',
   ],
   authors: [{ name: 'Dr. Kevin Moore', url: siteUrl }],
   creator: 'Dr. Kevin Moore',
@@ -231,8 +159,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           description: 'macOS-native Cocoa/WebKit privacy browser. Hardened, non-persistent, session-isolated. Secure Snapshot, TLS indicator, canvas hardening.',
           url: `${siteUrl}/`,
           downloadUrl: 'https://github.com/Darkelf2024/Darkelf-Cocoa-Browser/releases',
-          softwareVersion: '4.0.0',
-          releaseNotes: `${siteUrl}/releases/cocoa/4.0.0`,
+          softwareVersion: '4.3',
+          releaseNotes: `${siteUrl}/releases/cocoa/4.3`,
           license: 'https://opensource.org/licenses/MIT',
           offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
         },
@@ -330,9 +258,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        {/* CSP enforced via meta because GitHub Pages cannot set HTTP headers.
+            Header-only directives (HSTS, X-Frame-Options, frame-ancestors) are
+            ignored in meta form and require a real server/CDN to enforce.
+            'unsafe-eval' is added ONLY in development — Next/React dev mode needs
+            eval() for debugging; the production export never includes it. */}
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content={[
+            "default-src 'self'",
+            `script-src 'self' 'unsafe-inline'${
+              process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""
+            }`,
+            "style-src 'self' 'unsafe-inline'",
+            "img-src 'self' data: blob:",
+            "font-src 'self' data:",
+            "media-src 'self' blob:",
+            "connect-src 'self'",
+            "base-uri 'self'",
+            "form-action 'self'",
+            "object-src 'none'",
+            "upgrade-insecure-requests",
+          ].join("; ")}
         />
         <script
           type="application/ld+json"
@@ -351,7 +298,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFAQ) }}
         />
       </head>
-      <body className={mono.className}>{children}</body>
+      <body className={mono.className}>
+        <LiquidGlass />
+        {children}
+      </body>
     </html>
   );
 }

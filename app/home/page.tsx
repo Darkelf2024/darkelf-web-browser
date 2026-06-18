@@ -154,7 +154,7 @@ export default function HomePage() {
       </main>
 
       <footer>
-        © 2025 Dr. Kevin Moore — MIT Licensed
+        © 2026 Dr. Kevin Moore — MIT Licensed
         <div className="line">Built for those who refuse to be watched.</div>
       </footer>
     </>

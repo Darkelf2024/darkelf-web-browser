@@ -1,8 +1,5 @@
-# Kill all node processes, clear the Next.js lock, then start dev
-
-Set-Location -Path "F:\dev\darkelf-web-browser"
-
-# Kill every node.exe — catches Next.js, Turbopack workers, everything
+# Kill all node processes
+Set-Location -Path $PSScriptRoot
 $nodeProcs = Get-Process -Name "node" -ErrorAction SilentlyContinue
 if ($nodeProcs) {
     $nodeProcs | ForEach-Object {
@@ -15,7 +12,7 @@ if ($nodeProcs) {
 }
 
 # Remove lock file
-$lock = "F:\dev\darkelf-web-browser\.next\dev\lock"
+$lock = Join-Path $PSScriptRoot ".next\dev\lock"
 if (Test-Path $lock) {
     Remove-Item -Path $lock -Force
     Write-Host "Lock file removed."

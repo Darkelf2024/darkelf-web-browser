@@ -8,11 +8,12 @@ import {
   type ProductId,
   type Channel,
   type Platform,
+  type FileType,
 } from "@/data/releases";
 import { ALLOWED_DOWNLOAD_HOSTNAMES } from "@/lib/config";
 
 // Re-export types for convenience
-export type { Release, Artifact, ProductId, Channel, Platform };
+export type { Release, Artifact, ProductId, Channel, Platform, FileType };
 
 // ---------------------------------------------------------------------------
 // Query helpers
@@ -141,9 +142,10 @@ export function platformLabel(platform: Platform): string {
   return "Linux";
 }
 
-export function fileTypeLabel(fileType: "exe" | "appimage" | "dmg"): string {
+export function fileTypeLabel(fileType: FileType): string {
   if (fileType === "exe") return ".exe";
   if (fileType === "dmg") return ".dmg";
+  if (fileType === "zip") return ".zip (source)";
   return ".AppImage";
 }
 

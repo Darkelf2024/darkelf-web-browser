@@ -18,14 +18,6 @@ export function DownloadConfirmClient({
   const [confirmed, setConfirmed] = useState(false);
   const meta = PRODUCT_META[release.product];
 
-  function handleContinue() {
-    setConfirmed(true);
-    // Small delay so the status update is announced before navigation
-    setTimeout(() => {
-      window.location.href = artifact.url;
-    }, 300);
-  }
-
   return (
     <div className="dl-confirm">
       <div className="dl-confirm__card">
@@ -94,13 +86,13 @@ export function DownloadConfirmClient({
             <i className="bi bi-arrow-left" aria-hidden="true" />
             Back to Releases
           </Link>
-          <button
-            type="button"
+          {/* A plain https link so the browser follows GitHub's redirect
+              natively — no JS navigation that can be throttled or blocked. */}
+          <a
+            href={artifact.url}
             className="btn primary dl-confirm__go-btn"
-            onClick={handleContinue}
-            disabled={confirmed}
+            onClick={() => setConfirmed(true)}
             aria-label={`Continue and download ${meta.displayName} for ${platformLabel(artifact.platform)}`}
-            aria-disabled={confirmed}
           >
             {confirmed ? (
               <>
@@ -113,7 +105,7 @@ export function DownloadConfirmClient({
                 Continue Download
               </>
             )}
-          </button>
+          </a>
         </div>
 
         {/* Verify link */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import type { Release, ProductId, Channel, Platform, Artifact } from "@/lib/releases";
 import { VersionTimeline } from "@/components/VersionTimeline";
@@ -11,21 +11,10 @@ interface ReleasesFilterClientProps {
 }
 
 function ReleasesFilterInner({ releases }: ReleasesFilterClientProps) {
-  const [releasesData, setReleasesData] = useState<Release[]>(releases);
-  const [fetchError, setFetchError] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-    function load() {
-      fetch("/api/releases")
-        .then((r) => r.json())
-        .then((data) => { if (!cancelled) setReleasesData(data); })
-        .catch(() => { if (!cancelled) setFetchError(true); });
-    }
-    load();
-    const interval = setInterval(load, 60_000);
-    return () => { cancelled = true; clearInterval(interval); };
-  }, []);
+  // Release data is baked in at build time (static export). It used to be
+  // re-fetched from /api/releases, but that route cannot exist on a static
+  // host and only ever produced a permanent error banner + 404 polling.
+  const releasesData = releases;
 
   const searchParams = useSearchParams();
   const rawProduct = searchParams?.get("product") || null;
@@ -47,8 +36,6 @@ function ReleasesFilterInner({ releases }: ReleasesFilterClientProps) {
 
   return (
     <div className="releases-filter-wrap">
-      {fetchError && <div>Error loading releases. Please try again later.</div>}
-
       {/* Filter bar */}
       <div className="releases-filters" role="group" aria-label="Filter releases">
         {/* Product filter */}

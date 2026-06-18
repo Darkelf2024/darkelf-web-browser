@@ -1,9 +1,18 @@
 interface VerifyStepsProps {
   sha256: string;
   filename?: string;
+  /** GitHub release page where the authoritative checksum is published. */
+  notesUrl?: string;
 }
 
-export function VerifySteps({ sha256, filename = "<filename>" }: VerifyStepsProps) {
+/** A value is a real digest only if it's exactly 64 hex characters. */
+function isRealSha256(value: string): boolean {
+  return /^[a-f0-9]{64}$/i.test(value.trim());
+}
+
+export function VerifySteps({ sha256, filename = "<filename>", notesUrl }: VerifyStepsProps) {
+  const hasRealHash = isRealSha256(sha256);
+
   return (
     <section className="verify-steps" aria-labelledby="verify-title">
       <h3 id="verify-title" className="verify-steps__title">
@@ -43,9 +52,24 @@ export function VerifySteps({ sha256, filename = "<filename>" }: VerifyStepsProp
             The output must match the SHA-256 below exactly (case-insensitive).
             If it does not match, delete the file immediately &mdash; do not run it.
           </p>
-          <pre className="verify-code verify-code--hash">
-            <code>{sha256}</code>
-          </pre>
+          {hasRealHash ? (
+            <pre className="verify-code verify-code--hash">
+              <code>{sha256}</code>
+            </pre>
+          ) : (
+            <p className="verify-step__text verify-step__text--pending">
+              <i className="bi bi-info-circle" aria-hidden="true" />{" "}
+              The authoritative SHA-256 for this build is published on its{" "}
+              {notesUrl ? (
+                <a href={notesUrl} target="_blank" rel="noopener noreferrer">
+                  GitHub release page
+                </a>
+              ) : (
+                "GitHub release page"
+              )}
+              . Compare your computed hash against the value listed there.
+            </p>
+          )}
         </div>
       </div>
     </section>

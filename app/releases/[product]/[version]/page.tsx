@@ -37,7 +37,7 @@ export async function generateMetadata({
   const meta = PRODUCT_META[release.product];
   return {
     title: `${meta.displayName} v${release.version} — Darkelf Download Center`,
-    description: `${release.highlights[0]} — Download for Windows and Linux.`,
+    description: `${meta.displayName} v${release.version} — ${release.highlights[0]}`,
     openGraph: {
       title: `${meta.displayName} v${release.version}`,
       description: release.highlights[0],
@@ -71,6 +71,11 @@ export default async function ReleaseDetailPage({ params }: ReleaseDetailParams)
 
   // Find any artifact SHA for the verify block
   const firstArtifact = release.artifacts[0];
+  // Derive the real filename from the artifact URL rather than hardcoding a
+  // Cocoa/Windows name for every product.
+  const verifyFilename = firstArtifact
+    ? decodeURIComponent(firstArtifact.url.split("/").pop() || "") || undefined
+    : undefined;
 
   return (
     <>
@@ -139,7 +144,8 @@ export default async function ReleaseDetailPage({ params }: ReleaseDetailParams)
             <section id="verify" aria-labelledby="rd-verify-title">
               <VerifySteps
                 sha256={firstArtifact.sha256}
-                filename={`DarkelfCocoa-${release.version}-windows-x64.exe`}
+                filename={verifyFilename}
+                notesUrl={firstArtifact.notesUrl ?? release.releasePageUrl}
               />
             </section>
           )}
@@ -198,7 +204,7 @@ export default async function ReleaseDetailPage({ params }: ReleaseDetailParams)
       </main>
 
       <footer>
-        © 2025 Dr. Kevin Moore — MIT Licensed
+        © 2026 Dr. Kevin Moore — MIT Licensed
         <div className="line">Built for those who refuse to be watched.</div>
       </footer>
     </>
